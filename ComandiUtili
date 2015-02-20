@@ -1,0 +1,563 @@
+strace per analizzare programma
+netstat per vedere connessioni attive
+ps lista processi
+search jail per sandboxare programmi
+/etc/network/interfaces per interfacce network.
+	esempio:
+ iface eth0 inet static
+     address 192.168.1.10
+     network 192.168.1.0
+     netmask 255.255.255.0
+     broadcast 192.168.1.255
+     gateway 192.168.1.254
+/etc/resolv.conf per dns.
+	esempio:
+	nameserver 192.168.1.254
+	nameserver 8.8.8.8
+	nameserver 202.54.2.5
+restart networking: /etc/init.d/network restart
+disabilitare moduli kernel: cercarli con lsmod e poi aggiungere blacklist <nomemodulo> in /etc/modprobe.d/blacklist.conf
+scaricare lista di files in parallelo cat urlfile | parallel --gnu "wget {}"
+rimuovere \n da stringa: sed ':begin;$!N;s/\n//;tbegin'
+ora in binario: echo $(printf '%05d' $(bc<<<"obase=2; `date +%H`")):$( printf '%06d' $(bc<<<"obase=2; `date +%M`"))
+
+python-mysqldb per connessione database python
+take a screenshot: import -window root -quality 98 screenshot.png
+setxkbmap -layout us -variant altgr-intl mettere tastiera in inglese + dead keys
+echo server: ncat -l 2000 --keep-open --exec "/bin/cat"
+nmap per fare port mapping
+unity-control-center per impostazioni o gnome-control-center se non ubuntu
+/usr/share/awesome/lib percorso lib di awesome
+ifstat per stat network usage
+dmesg per kernel log
+wall per broadcast di un messaggio su tutti i tty (ctrl+d per terminare il messaggio)
+xev per registrare eventi tastiera e mouse
+aggiungere exec awesome in ~.xinitrc (se non esiste crearlo)
+pcmanfm per file manager su Lubuntu
+
+aggiungere exec awesome in ~.xinitrc (se non esiste crearlo)
+
+GRUB:
+sudo nano /etc/default/grub
+Find out this line:
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+Change it to:
+
+GRUB_CMDLINE_LINUX_DEFAULT="text"
+
+	xrandr -q per vedere periferiche X
+	esempio epr dual screen xrandr --output VGA-0 --mode 1920x1080 --right-of DVI-0
+
+mail mutt
+batteria: upower -d | grep time
+fbi per visualizzare immagini
+w3m browser per fb	
+less legge i pdf
+finch per le chat
+awesome windows manager 
+install poppler-utils e screen
+splittare il terminale: screen
+You can do it in screen the terminal multiplexer.
+
+To split vertically: ctrla then |.
+To split horizontally: ctrla then S (uppercase one).
+To unsplit: ctrla then Q (uppercase one).
+To remove a split ctrla X
+To switch from one to the other: ctrla then tab
+Note: After splitting, you need to go into the new region and start a new session via ctrla then c before you can use that area.
+
+EDIT, basic screen usage:
+
+New terminal: ctrla then c.
+Next terminal: ctrla then space.
+Previous terminal: ctrla then backspace.
+N'th terminal ctrla then [n]. (works for nâˆˆ{0,1â€¦9})
+Switch between terminals using list: ctrla then " (useful when more than 10 terminals)
+Send ctrla to the underlying terminal ctrla then a.
+
+use mouse while in text mode: gpm
+
+clock(){ ( while : ; do title `date`; sleep 1; done) & }
+
+tr per elaborare testi, più semplice di sed
+info sul drive df -Ph
+lsblk vedere le usb con la loro etichetta e dimensione
+
+backup Dropbox:
+cp -avurf ~/Dropbox /Backup/Dropbox
+
+
+comprimere al massimo con tar env GZIP=-9 tar cvzf file.tar.gz /path/to/directory
+forzare dist-upgrade: sudo do-release-upgrade -d
+
+vedere files più grandi in un cartella lasciando un log:
+ du | sed -r -e 's/[0-9]/0000000&/' -e 's/0*([0-9]{8}[^0-9])/\1/' | sort > ~/sizelog.log && tail ~/sizelog.log 
+
+gnome-shell-extension-prefs per preferenze estensioni
+reset per ripristinare il teminale dopo averlo sputtanato con cat
+per potere cambiare titol a tabs:
+commentare ciò che segue in .bashrc
+# If this is an xterm set the title to user@host:dir
+#case "$TERM" in
+#xterm*|rxvt*)
+#    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#    ;;
+#*)
+#    ;;
+#esac
+e poi usare la funzione
+echo -en "\033]0;Titolo\a"
+oppure
+title(){ 
+echo -en "\033]0;$1\a" 
+}
+
+
+trap to trap a kill command
+(esempio trap 'kill -HUP $pid' 0 HUP INT TERM) //se viene killato propaga HUP al processo pid
+grep -v inverte la selezione
+vedere se un certo pid esiste
+ls /proc/ | grep -E "^[0-9]+$" | grep -e "^905$"
+
+bytebeat controllare
+aplay per riprodurre pipeline
+find . -name '*.foo' -exec cat {} \;
+padding numbers with 0 :
+sed -r -e 's/[0-9]/0000000&/' -e 's/0*([0-9]{8}[^0-9])/\1/'
+
+sort to sort
+
+Progressbar for mysql
+ pv enwiki-20141208-pagelinks.sql | mysql -p wikipedia_links
+
+dimensione cartella
+du
+
+Progressbar for tar (progress in terminal with pipeline)
+SIZE=`du -sk folder-with-big-files | cut -f 1`
+And then:
+tar cvf - folder-with-big-files | pv -p -s ${SIZE}k | \ 
+     bzip2 -c > big-files.tar.bz2
+
+du per dimensione files
+surfraw per googlare da terminale 
+type nomealias
+stampa alias
+
+alias stampa liasta aliases
+
+xsetwacom --set 12 TOUCH off
+xsetwacom --list devices
+
+Conta files in ogni dir e subdir del primo lvl
+for D in `find . -type d -maxdepth 1`; do echo $D; find $D| wc -l; done
+
+Reinstallare grub
+Avvia da live cd e dai grub-install /dev/...
+
+reset gnome theme to deafult: 
+gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
+gsettings set org.gnome.desktop.wm.preferences theme "Adwaita"
+gsettings set org.gnome.desktop.interface icon-theme "Adwaita"
+gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
+
+to use gtk dialogs from bash use zenity
+yum localinstall per *.rpm
+Contare tutte righe di un progetto
+shopt -s globstar
+wc -l **/*.java
+autorun root level: /etc/rc.local
+fsck per checkdisk
+ntfsclone --rescue per backups
+wc info sui files
+apt-get -f install risolve le dipendenze di pacchetti installati
+precedentemente con dpkg se non ha risolto le dipendenze
+Sync con ssh: rsync -avz -e ssh remoteuser@remotehost:/remote/dir /this/dir/ 
+ssh rob@192.168.0.112 -T -c arcfour -o Compression=no -x "tar zvcf - ~/Music" | tar zvxf - -C .
+streaming con ssh
+ssh rob@192.168.0.110 "cat /Backup/DaSmistare/The\ Descent\ 2.avi " | mplayer -
+oppure rob@desktop.local
+
+mostrare hardware sudo lshw -class disk
+
+syncare 2 cartelle:
+rsync -avrut --delete --progress ~/tmp/Prova1 ~/tmp/Prova2
+
+lg dalla shell è gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Eval 'Main.lookingGlass.toggle();' nel terminale
+shortcut: /bin/bash -c "sleep 0.3 && gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Eval 'Main.lookingGlass.toggle();'"
+
+oli@bert:~$ ssh tim
+oli@tim:~$ export DISPLAY=:0
+oli@tim:~$ firefox
+apre firefox sullo schermo remoto.
+cat ./113b.avi  | ssh qbieshay@192.168.0.103  "cat - > prova.avi"
+copia prova.avi sul pc remoto
+To send a file:
+cat file | ssh ajw@dogmatix "cat > remote"
+Or:
+ssh ajw@dogmatix "cat > remote" < file
+To receive a file:
+ssh ajw@dogmatix "cat remote" > copy
+
+
+creare un file (compresa cartella ) in
+/etc/X11/xorg.conf.d/00-nomefile.conf
+che contiene 
+Section "Device"
+	Identifier "intel-graphics"
+	Driver "intel"
+	Option "Backlight" "intel_backlight"
+EndSection
+cartella che contiene roba luminosità /sys/class/backlight/
+provarne un po'
+
+sudo add-apt-repository ppa:tualatrix/ppa
+sudo apt-get install ubuntu-tweak
+
+in .bashrc sta il file che contiene roba per l'avvio delle shells
+
+tar -xvzf per estrarre tar con permessi sui files 
+software-properties-gtk
+gnome-session-properties autostart in GNOME
+dizionario /usr/share/dict/words
+apt-cache showpkg 
+echo $((2**32)) calcola 2^32
+rimuovere mirror italiani sorgenti sed -i 's/it\.//g' /etc/apt/sources.list
+
+lxde horizontal scroll
+Edit ~/.config/lxsession/Lubuntu/autostart
+@synclient HorizTwoFingerScroll=1
+
+dig .x dà nome dato un ip (reverse dns) [dig dà info dominio]
+timestamp -d 8.8.8.8 -t 1000
+traceroute 8.8.8.8
+cat /dev/urandom | nc -u ip porta flooda quell'ip porta
+nc utility per mandare pacchetti via rete
+route -n dà tabella routing
+arp -n tabella forwarding
+nano .profile per cambiare path. separare le stringhe con ':'. per ricaricare ". .profile"
+pdftotext file.pdf file.txt (serve poppler-utils)
+sudo apt-get -f install (dopo dpkg -i pacchetto risolve le dipendenze)
+sudo passwd per settare pw di root
+/sys/class/power_supply/BAT0
+dd if=inputfile of=outputfile(/dev/sdb1) bs=4096 
+ls /sys/class/dmi/ contine info sul pc
+cercare pacchetto in apt-get 
+apt-cache search nomepacchetto
+rfkill per accendere e spegnere dispositivi
+free dà info sulla ram occupata
+source list /etc/apt/sources.list
+pavucontrol per controllo audio avanzato
+per batteria 
+gdbus introspect --system --dest org.freedesktop.UPower --object-path /org/freedesktop/UPower/devices/battery_BAT0 
+posizione dizionario /usr/share/dict/italian
+ctrl+z sospende un job
+jobs dà la lista
+fg numerojob lo riprende
+bg numerojob lo passa in background
+
+pactl set-sink-volume <interfaccia> <volume> intero tra 0 e 65536
+
+gst-launch playbin2 uri=file:///<posizione> per aprire file audio
+/etc/default/grub configurazioni di grub, mettere 3 ai parametri del kernel per togliere lightdm in autorun. (poi dare update-grub) GRUB_CMDLINE_LINUX=" 3 " però in /etc/init/lightdm.conf sostituire "runlevel [!06]" con "runlevel[45]"
+ogni pacchetto deb ha una lista di pacchetti suggeriti / raccomandati
+la trovi con "apt-cache showpkg <nome>"
+o "aptitude <trovo il pacchetto> <premo invio>"
+qemu-img create -f qcow qemu_disk.img 3G
+qemu -cdrom disk_image.iso -hda qemu_disk.img -m 256 -boot d
+uname dà info sul pc
+sudo mount /dev/sda1 / -o remount,defaults,rw #per avere diritti di rw
+lspci plusb e ls /sys/class/<subsystem> e ls /sys/bus/<bus> info sul sistema
+gcc -g -o outname inname.c -Wall -Wextra -pedantic -std=c90
+watch continua ad eseguire un comando e ne visualizza l'output
+sudo pm-hibernate
+nmcli nm wifi on 
+less è l'impaginatore
+ls lista i file
+makedir fa una cartella
+rm rimuove i files (-r per eliminare cartelle e sottocartelle)
+cd ../ va alla cartella sup
+ctrl+r cerca nella storia del terminale
+ctrl+c interrompe l'esecuzione da terminale
+ctrl+s nasconde l'output
+mv muove o rinomina
+cp copia
+man bash per manuale 
+pidof nomeprocesso dà il pid del processo
+grep parola nomefile stampa le righe che contengono quella parola
+oppure programma | grep parola filtra l'output
+comando >file per scrivere l'output in un file
+md5sum
+cmp compara due files
+eject cdrom espelle il cdrom, -t lo chiude
+umount /dev/crdom (esempio) smonta l'unità richiesta
+exec esegue un file
+fsck fa il checkdisk, formatta eccetera
+top: è un task manager
+
+Aggiungere collegamenti in gnome shell
+esempi desktop files:
+/usr/share/applications
+vanno poi messi in
+.local/share/applications
+
+x monodevelop debugger
+installa xterm
+modifica il file monodevelop.desktop alla riga Exec
+
+scrivendo "env --unset=GNOME_DESKTOP_SESSION_ID monodevelop %F" al posto di monodevelop %F
+
+(il file è in /usr/share/applications)
+
+non serve riavviare, basta poi avviare monodevelop dalla shell
+
+/etc/yum.repos.d/ in cui mettere i files .repo
+yum ha il distribution-synchronization per rimettersi alla versione più aggiornata dei pacchetti e upgrade per fare l'update+upgrade
+
+yum ha localinstall per i pacchetti rpm
+
+
+
+
+
+
+SSH
+ssh-keygen -t rsa -b 4096" sul netbook
+questo ti crea un file .ssh/id_rsa (chiave privata) e .ssh/id_rsa.pub (chiave pubblica)
+questo file .pub lo sposti sul fisso come ~/.ssh/authorized_keys
+e poi chmod 0700 ~/.ssh
+poi si disabilita l'accesso via password
+modificare /etc/ssh/sshd_config cambiando  PasswordAuthentication da yes a no
+service ssh restart
+per collegarsi dal netbook usare
+ssh mpj@mastermindpj.no-ip.org
+guarda in /var/log/auth.log gli errori
+se dà problemi in solvabilità UseDNS no in sshd config
+
+
+
+Mass Renaming{
+for i in *; do name=$(echo $i | sed -e 's/(\([1-9]\))/(0\1)/g'); test x"$i" = x"$name" || mv "$i" "$name"; done
+
+	for ogni file i in tutti i file; (il do ne è parte)
+	variabile name ← (scrivi i (il nome file) in | sed)
+		sed: -e (esegui comando) sostituisci /questo/conquesto/g (ad ogni occorrenza)
+			questo: (capturing group) 
+				cg: \( [un numero da uno a nove] \)
+			conquesto: (non più regular expression, non serve il backslas)
+				(0 \1 (primo capturing group della regular expression) )
+	test: o xnomefile == xnomegenerato (se positivo il resto non viene valutato per via di ||)
+	end for
+}
+
+MAss copy by extension
+{
+find /home/mpj/PerIlaFound/ -name \*.html | while read name ; do newname=$(echo $name | sed 's|/home/mpj/PerIlaFound/|/home/mpj/HTMLILA/|'); dirname=$(dirname "$newname"); test -d "$dirname" || mkdir -p "$dirname"; cp "$name" "$newname" ; done
+
+}
+
+
+
+
+Installare un programma
+{
+Install a package 
+rpm –ivh packagename 
+upgrade a package 
+rpm –Uvh packagename 
+
+create a tar file 
+tar –cvf myfiles.tar mydir/ 
+(add z if you are dealing with or creating .tgz (.tar.gz) files) 
+
+standard install from source 
+tar –xvzf Apackage.tar.gz
+cd Apackage
+./configure
+make
+make install 
+
+se mancano autogen o configure si usa autoreconf -i
+
+RPM alternativo
+sudo alien pacchetto
+}
+
+va installato openssh-server
+rsync -avz -e ssh /copy/me login@serverip:/where/to
+Also be careful of /'s for example
+rsync -avz -e ssh /copy/me/ login@serverip:/where/to
+Will copy everything inside the dir and not the dir.
+
+GIT
+{
+git status da' lo stato di sviluppo della cosa
+
+terminologia: branch = la "linea di sviluppo" su cui si va a lavorare, head = il commit su cui ci si sta impostando, commit = un singolo set di modifiche, con un titolo, un messaggio, un autore, indice = il database di git (ovvero come git vede il mondo), working tree: la tua cartella fisica su cui stai lavorando
+
+git diff: mostra le differenze tra qualcosa e qualcos'altro (di default, tra la working tree e l'indice, ovvero tra quando hai scritto e quando sta già in qualche modo nel repository)
+
+git add: aggiunge un file all'indice (ovvero, fa in modo che git conosca un file, e lo prepara al commit)
+
+git commit: trasforma l'indice nell head, aggiungendo il tuo nome (dalla config) e un messaggio (con il tuo editor configurato, di default è vi)
+
+git commit -a: aggiunge tutti i file modificati con git add, poi esegue git commit
+git checkout: cambia branch, o cambia head
+git log: mostra l'history della branch attuale
+
+esistono in git alcune branch particolari (dette "remote-tracking") che non rappresentano delle branch vere e proprie ma rappresentano lo stato di un repository remoto 22:18:19
+git fetch esegue l'aggiornamento di queste branch, scaricando eventuali file aggiunti e altri metadati 22:18:54
+ma non aggiorna le vere branch (quelle del tuo repo, inclusa quella su cui stai lavorando, cioè master)
+
+git pull invece esegue git fetch e in più manda avanti (fast-forward) la tua master locale a origin/master, ovvero a quella remota 
+tu avrai due branch, una è master, l'altra è origin/master
+master è dove stai lavorando tu (ed è propriamente una branch) 22:20:35
+origin/master è lo stato del repo su github (ed è soltanto una ref, cioè non ci puoi committare sopra)
+git pull aggiorna le branch origin/* e in più ti avanza master fino a che si trova a coincidere con origin/master
+(o foo con origin/foo, se la tua branch attuale è foo)
+
+commit non ancora pubblici), ti trovi con un orrendo merge commit 
+in quel caso, usa "git pull --rebase", che invece di git merge usa git rebase, ovvero stacca le tue modifiche e le riapplica una ad una sopra il nuovo stato
+
+devi aggiungere un nuovo file
+dentro src 
+poi modificare src/Makefile.am, aggiungendo il tuo file a _SOURCES 
+(ma questo non ha nulla a che vedere con git, è una questione di buildsystem) 
+dopodichè, git add src/tuofile.c 
+git commit -a
+git push
+}
+
+GDB:
+{
+backtrace full
+man gdb per more
+run
+c
+step
+next
+break numeroriga
+watch variabile
+disable numerobreakpoint
+display nomevariabile la stampa ad ogni passaggio
+print nomevariabile (o espressione)
+x/d &nomevariabile(intera, se no è x/f per i float eccetera)
+info breakpoints
+q quitta
+k killa
+gdb --args se voglio passare argomenti
+}
+gcc -g dà i simboli
+-o nomeoutput
+-O livello di ottimizzazioni O3 è il più alto
+-Wall warning utili
+-Wextra tutti gli altri
+-Werror trasforma warning in errori
+INSTALLARE FGLRX GIUSTO:
+sudo apt-get install fglrx-updates
+reinstallare ATI drivers di X rimuovendo fglrx
+sudo /usr/share/ati/fglrx-uninstall.sh  # (if it exists)
+sudo apt-get remove --purge fglrx*
+sudo apt-get remove --purge xserver-xorg-video-ati xserver-xorg-video-radeon 
+sudo apt-get install xserver-xorg-video-ati
+sudo apt-get install --reinstall libgl1-mesa-glx libgl1-mesa-dri xserver-xorg-core
+sudo dpkg-reconfigure xserver-xorg
+
+LOGS
+{
+=> /var/log/messages : General log messages
+
+=> /var/log/boot : System boot log
+
+=> /var/log/debug : Debugging log messages
+
+=> /var/log/auth.log : User login and authentication logs
+
+=> /var/log/daemon.log : Running services such as squid, ntpd and others log message to this file
+
+=> /var/log/dmesg : Linux kernel ring buffer log
+
+=> /var/log/dpkg.log : All binary package log includes package installation and other information
+
+=> /var/log/faillog : User failed login log file
+
+=> /var/log/kern.log : Kernel log file
+
+=> /var/log/lpr.log : Printer log file
+
+=> /var/log/mail.* : All mail server message log files
+
+=> /var/log/mysql.* : MySQL server log file
+
+=> /var/log/user.log : All userlevel logs
+
+=> /var/log/xorg.0.log : X.org log file
+
+=> /var/log/apache2/* : Apache web server log files directory
+
+=> /var/log/lighttpd/* : Lighttpd web server log files directory
+
+=> /var/log/fsck/* : fsck command log
+
+=> /var/log/apport.log : Application crash report / log file
+}
+
+{gio su git}
+git clone git@github.com:gcampax/gtk-autocorrect.git 21:58:25
+ 
+Cloning into gtk-autocorrect...
+Permission denied (publickey).
+fatal: The remote end hung up unexpectedly
+ 
+ls ~/.ssh
+known_hosts
+ssh-keygen	
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/mpj/.ssh/id_rsa): 
+ 
+Giovanni Campagna 22:02:16
+
+ 
+Roberto Clapis 22:02:19
+come lo chiamo?	
+
+Giovanni Campagna 22:02:37
+(ti ho premuto invio, questo era quello che dovevi premere tu)
+(cioè, id_rsa va benissimo) 22:02:47
+ 
+Roberto Clapis 22:02:49
+ok, poi ho messo no passwords	
+
+Giovanni Campagna 22:03:05
+ottimo	
+
+Roberto Clapis 22:03:15
+Your public key has been saved in /home/mpj/.ssh/id_rsa.pub.
+The key fingerprint is:
+75:81:c32:8040:89:fb:55:9a:0a:3a:0a:f0:87 mpj@mpj-MS-7599
+The key's randomart image is:
++--[ RSA 2048]----+
+|     .o*.= ..    |
+|      o = = ..   |
+|       . ..=.    |
+|.     o  .+.     |
+|.. . . oSo       |
+|. E +   o        |
+| . o .           |
+|  .              |
+|                 |
++-----------------+
+ 
+Giovanni Campagna 22:03:16
+ora
+gedit ~/.ssh/id_rsa.pub
+<ctrl>-a <ctrl>-c 22:03:28
+ 
+Roberto Clapis 22:03:53
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDT4VEpWhocOIT3LuaXel3i9xEUR6o2CQKou2U1F/u3ZsxXRlIde8D6BZ8mm9SG4bVzhrMRCFiQRdJbzLBvXbAgUfqczqB1UA5Bd2stszLbhvv4pSfTrJWwSEj5V+daTtlmNag0MpN9I6o0nkqk9PJ6fPHQF++RNJN+slofBdVGqSPYYPZGa72wDQzd63kqLafd36UUklwM6IeJKPOXFygzDJmm7f1yEr6LgKTGC8qHgk88CVMpt2FUQ3532DJDFnyB/cHZGL2TjSgBvShB/B3RbmcNYidk8ADtAQwON93TmvmyxR/FGntXbAdK6+30wvJbLhLGTVn7ftiEx2nsHhYv mpj@mpj-MS-7599	
+
+Giovanni Campagna 22:04:07
+chromium-browser https://github.com/account/ssh
+<mouse on "Add another public key"> <button-1 click> 22:04:26
+<ctrl->v

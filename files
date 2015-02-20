@@ -1,0 +1,4 @@
+
+
+#Complex commands
+copy the content of a folder into an other folder: cp -ar /source/. /dest/
