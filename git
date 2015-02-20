@@ -1,0 +1,29 @@
+git add . per aggiugnere tutta cartella, anche files nascosti
+git config --global user.name "RobClap"
+git config --global user.email "robclap8@gmail.com"
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=3600'
+
+INIT a repo
+touch README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/RobClap/white-cloud-hschool.git
+git push -u origin master
+
+git log -p per last commits
+git update-index --[no-]assume-unchanged <file>
+git show --pretty="format:" --name-only bd61ad98
+git add -u per addare anche rimozioni
+
+# show differences between index and working tree
+# that is, changes you haven't staged to commit
+git diff [filename]
+# show differences between current commit and index
+# that is, what you're about to commit
+git diff --cached [filename]
+# show differences between current commit and working tree
+git diff HEAD [filename]
+
+git rm $(git ls-files --deleted) per rimuovere i rimossi
