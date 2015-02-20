@@ -1,0 +1,36 @@
+active connections: netstat
+parallel download: cat urlfile | parallel --gnu "wget {}" 
+echo server: ncat -l 2000 --keep-open --exec "/bin/cat"
+port mapping: nmap
+network usage: ifstat
+browsers da terminale: w3m + w3m-images, elinks, links, links2, lynx
+obtain name from ip (reverse dns): dig <ip>
+trace packets to destination: traceroute <ip>
+restart networking: /etc/init.d/network restart
+utility like telnet, useful to create basic packets and networking: nc
+obtain route table: route -n
+obtain forwarding table: arp -n
+network manager cli: nmcli
+obtain an ip from an url: dig +short <url>
+search with default browser on the internet: surfraw OR sr <search engine> <keywords>
+
+#Complex commands
+flood a port: cat /dev/urandom | nc -u ip port
+
+#Useful files
+network interfaces:
+	/etc/network/interfaces
+	i.e.:
+ 	iface eth0 inet static
+    	 address 192.168.1.10
+    	 network 192.168.1.0
+    	 netmask 255.255.255.0
+     	 broadcast 192.168.1.255
+     	 gateway 192.168.1.254
+network nameservers (dns):
+	/etc/resolv.conf 
+    i.e:
+    	nameserver 192.168.1.254
+    	nameserver 8.8.8.8
+    	nameserver 202.54.2.5
+
