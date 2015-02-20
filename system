@@ -1,0 +1,75 @@
+analize a program: strace
+list all processes: ps -e
+create jailed environments and "sandboxes": jail
+search kernel modules and drivers: lsmod
+parallelize processes: parallel
+take a screenshot: import -window root -quality 98 screenshot.png
+change keyboad layout in X: setxkbmap
+setxkbmap available layouts: /usr/share/X11/xkb/rules/base.lst
+system settings: unity-control-center OR gnome-control-center
+kernel messages,log: dmesg
+broadcast a message in all tty: wall (to terminate the message press ctrl+d)
+record input events for mouse and keyboard in X: xev
+list video output devices, screens: xrandr -q
+drives infos: df -Ph
+list usb devices: lsblk
+gnome-shell extensions prefs: gnome-shell-extension-prefs
+wacom utils: xsetwacom
+reinstall grub: from live grub-install /dev/...
+checkdisk: fsck
+backup an ntfs drive: ntfsclone --rescue
+install package: dpkg -i then apt-get isntall -f to fix dependencies, then again dpkg -i
+list hardware: lshw (run as sudo)
+add(remove) repo: add-apt-repository (--remove)
+autostart in GNOME: gnome-session-properties 
+set software sources and servers: software-properties-gtk
+info on a package: apt-cache showpkg
+set root password: sudo passwd
+pc info: ls /sys/class/dmi/
+enable, disable devices: rfkill
+info on used ram: free 
+sources list: /etc/apt/sources.list
+audio control: pavucontrol
+battery: upower -d
+set volume: pactl set-sink-volume <iface> <0-65536>
+info on pc: uname, lspci plusb ,ls /sys/class/<subsystem> ,ls /sys/bus/<bus> 
+hibernate, suspend: pm-<hibernate/suspend>
+pid of process: pidof
+
+
+
+#Complex commands
+set us alt-gr dead keys: setxkbmap -layout us -variant altgr-intl
+set dual-screen mode: xrandr --output VGA-0 --mode 1920x1080 --right-of DVI-0
+
+#Useful files:
+disable kernel modules and drivers: 
+/etc/modprobe.d/blacklist.conf
+	add blacklist <modulename>
+
+
+GRUB:
+/etc/default/grub
+example: 
+start system in text mode:
+change
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+to
+GRUB_CMDLINE_LINUX_DEFAULT="text"
+
+autorun root level: /etc/rc.local
+
+
+eeepc backlight fix:
+create :/etc/X11/xorg.conf.d/00-nomefile.conf
+content:
+Section "Device"
+	Identifier "intel-graphics"
+	Driver "intel"
+	Option "Backlight" "intel_backlight"
+EndSection
+folder with info on backlight:
+/sys/class/backlight/
+
+
+change PATH:  
