@@ -1,0 +1,12 @@
+Configurazione della rete wireless “polimi-protected” tramite comando manuale
+
+Ogni volta che vorrete collegarvi alla rete wireless "polimi-protected" sarà sufficiente eseguire i seguenti comandi dalla home:
+
+ifconfig DEV up
+iwconfig DEV essid polimi-protected
+dove DEV e' la scheda di rete wireless (es. wlan0).
+
+wpa_supplicant -i DEV -D DRIVER -c polimi-protected.conf -d
+dove DRIVER e' il driver per wpa_supplicant da utilizzare, utilizzare il comando wpa_supplicant senza parametri per visualizzare l'elenco dei driver disponibili.
+
+Una volta stabilita la connessione, evento notificato con il messaggio “EAPOL: SUPP_PAE entering state AUTHENTICATED” richiedete il rilascio di un indirizzo ip tramite il comando: dhclient DEV
