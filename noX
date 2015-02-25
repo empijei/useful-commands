@@ -1,1 +1,2 @@
-graphical web browsing: links2 -g
+graphical web browsing (must be superuser): links2 -g
+printing to printer: lpr
