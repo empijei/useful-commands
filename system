@@ -1,3 +1,5 @@
+check temperature of hardware: sensors (before using: sudo sensors-detect ; sudo service kmod start)
+edit partitions: gparted OR fdisk (to add a filesystem sudo mkfs.ext4 /dev/sdaX)
 analize a program: strace
 list all processes: ps -e
 create jailed environments and "sandboxes": jail
