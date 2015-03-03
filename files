@@ -1,4 +1,4 @@
-
-
+better and improved version of dd: dcfldd
+sort filers by size recursively: du -a | sort -n
 #Complex commands
-copy the content of a folder into an other folder: cp -ar /source/. /dest/
+copy the content of a folder into another folder: cp -ar /source/. /dest/
