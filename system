@@ -1,7 +1,7 @@
 install from AUR on arch: download the tarball; tar -xvf tarball; cd cartella; makepkg -S; pacman -U risultato
 disk manager: gnome-disks
 detach an usb or generic disk: sudo udisks --detach /dev/sdX
-check temperature of hardware: sensors (before using: sudo sensors-detect ; sudo service kmod start)
+check temperature of hardware: sensors (after using: sudo sensors-detect ; sudo service kmod start)
 edit partitions: gparted OR fdisk (to add a filesystem sudo mkfs.ext4 /dev/sdaX)
 analize a program: strace
 list all processes: ps -e
