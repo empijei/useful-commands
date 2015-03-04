@@ -1,4 +1,5 @@
 add a user to a group: gpasswd -a username groupname
+install from AUR on arch: download the tarball; tar -xvf tarball; cd cartella; makepkg -S; pacman -U risultato
 disk manager: gnome-disks
 detach an usb or generic disk: sudo udisks --detach /dev/sdX
 check temperature of hardware: sensors (after using: sudo sensors-detect ; sudo service kmod start)
