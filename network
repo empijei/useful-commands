@@ -16,6 +16,8 @@ search with default browser on the internet: surfraw OR sr <search engine> <keyw
 
 #Complex commands
 flood a port: cat /dev/urandom | nc -u ip port
+download something while uncompressing: wget -O - "url" | tar xzf -
+
 
 #Useful files
 network interfaces:
