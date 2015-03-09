@@ -1,21 +1,6 @@
 strace per analizzare programma
 netstat per vedere connessioni attive
-ps lista processi
 search jail per sandboxare programmi
-/etc/network/interfaces per interfacce network.
-	esempio:
- iface eth0 inet static
-     address 192.168.1.10
-     network 192.168.1.0
-     netmask 255.255.255.0
-     broadcast 192.168.1.255
-     gateway 192.168.1.254
-/etc/resolv.conf per dns.
-	esempio:
-	nameserver 192.168.1.254
-	nameserver 8.8.8.8
-	nameserver 202.54.2.5
-restart networking: /etc/init.d/network restart
 disabilitare moduli kernel: cercarli con lsmod e poi aggiungere blacklist <nomemodulo> in /etc/modprobe.d/blacklist.conf
 scaricare lista di files in parallelo cat urlfile | parallel --gnu "wget {}"
 rimuovere \n da stringa: sed ':begin;$!N;s/\n//;tbegin'
@@ -49,8 +34,6 @@ GRUB_CMDLINE_LINUX_DEFAULT="text"
 	xrandr -q per vedere periferiche X
 	esempio epr dual screen xrandr --output VGA-0 --mode 1920x1080 --right-of DVI-0
 
-mail mutt
-batteria: upower -d | grep time
 fbi per visualizzare immagini
 w3m browser per fb	
 less legge i pdf
@@ -59,24 +42,6 @@ awesome windows manager
 install poppler-utils e screen
 splittare il terminale: screen
 You can do it in screen the terminal multiplexer.
-
-To split vertically: ctrla then |.
-To split horizontally: ctrla then S (uppercase one).
-To unsplit: ctrla then Q (uppercase one).
-To remove a split ctrla X
-To switch from one to the other: ctrla then tab
-Note: After splitting, you need to go into the new region and start a new session via ctrla then c before you can use that area.
-
-EDIT, basic screen usage:
-
-New terminal: ctrla then c.
-Next terminal: ctrla then space.
-Previous terminal: ctrla then backspace.
-N'th terminal ctrla then [n]. (works for nâˆˆ{0,1â€¦9})
-Switch between terminals using list: ctrla then " (useful when more than 10 terminals)
-Send ctrla to the underlying terminal ctrla then a.
-
-use mouse while in text mode: gpm
 
 clock(){ ( while : ; do title `date`; sleep 1; done) & }
 
@@ -214,7 +179,6 @@ lxde horizontal scroll
 Edit ~/.config/lxsession/Lubuntu/autostart
 @synclient HorizTwoFingerScroll=1
 
-dig .x dà nome dato un ip (reverse dns) [dig dà info dominio]
 timestamp -d 8.8.8.8 -t 1000
 traceroute 8.8.8.8
 cat /dev/urandom | nc -u ip porta flooda quell'ip porta
@@ -252,13 +216,10 @@ o "aptitude <trovo il pacchetto> <premo invio>"
 qemu-img create -f qcow qemu_disk.img 3G
 qemu -cdrom disk_image.iso -hda qemu_disk.img -m 256 -boot d
 uname dà info sul pc
-sudo mount /dev/sda1 / -o remount,defaults,rw #per avere diritti di rw
 lspci plusb e ls /sys/class/<subsystem> e ls /sys/bus/<bus> info sul sistema
 gcc -g -o outname inname.c -Wall -Wextra -pedantic -std=c90
 watch continua ad eseguire un comando e ne visualizza l'output
 sudo pm-hibernate
-nmcli nm wifi on 
-less è l'impaginatore
 ls lista i file
 makedir fa una cartella
 rm rimuove i files (-r per eliminare cartelle e sottocartelle)
@@ -269,7 +230,6 @@ ctrl+s nasconde l'output
 mv muove o rinomina
 cp copia
 man bash per manuale 
-pidof nomeprocesso dà il pid del processo
 grep parola nomefile stampa le righe che contengono quella parola
 oppure programma | grep parola filtra l'output
 comando >file per scrivere l'output in un file

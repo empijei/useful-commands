@@ -1,2 +1,31 @@
 graphical web browsing (must be superuser): links2 -g
 printing to printer: lpr
+list processes and proc info: ps 
+mail: mutt
+battery: upower -d | grep time
+open image in framebuffer: fbi (must be sudo)
+graphical browsing: links2 -g 
+chat: finch
+split terminal and multiple instances of bash in same screen: screen 
+#Usage of screen
+To split vertically: ctrla then |.
+To split horizontally: ctrla then S (uppercase one).
+To unsplit: ctrla then Q (uppercase one).
+To remove a split ctrla X
+To switch from one to the other: ctrla then tab
+Note: After splitting, you need to go into the new region and start a new session via ctrla then c before you can use that area.
+New terminal: ctrla then c.
+Next terminal: ctrla then space.
+Previous terminal: ctrla then backspace.
+N'th terminal ctrla then [n]. 
+Switch between terminals using list: ctrla then " (useful when more than 10 terminals)
+Send ctrla to the underlying terminal ctrla then a.
+use mouse: gpm
+list connected devices: lsblk
+convert pdf to text or html: pdftotext or pdftohtml
+open pdf: less
+change volume: amixer
+mount a disk with rw rights: sudo mount /dev/sda1 / -o remount,defaults,rw 
+network manager: nmcli
+task manager: top
+
