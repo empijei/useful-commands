@@ -1,3 +1,4 @@
+check execution time of a program: time program
 add a user to a group: gpasswd -a username groupname
 install from AUR on arch: download the tarball; tar -xvf tarball; cd cartella; makepkg -S; pacman -U risultato
 disk manager: gnome-disks

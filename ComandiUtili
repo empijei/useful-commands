@@ -173,13 +173,7 @@ ntfsclone --rescue per backups
 wc info sui files
 apt-get -f install risolve le dipendenze di pacchetti installati
 precedentemente con dpkg se non ha risolto le dipendenze
-Sync con ssh: rsync -avz -e ssh remoteuser@remotehost:/remote/dir /this/dir/ 
-ssh rob@192.168.0.112 -T -c arcfour -o Compression=no -x "tar zvcf - ~/Music" | tar zvxf - -C .
-streaming con ssh
-ssh rob@192.168.0.110 "cat /Backup/DaSmistare/The\ Descent\ 2.avi " | mplayer -
-oppure rob@desktop.local
 
-mostrare hardware sudo lshw -class disk
 
 syncare 2 cartelle:
 rsync -avrut --delete --progress ~/tmp/Prova1 ~/tmp/Prova2
@@ -191,15 +185,6 @@ oli@bert:~$ ssh tim
 oli@tim:~$ export DISPLAY=:0
 oli@tim:~$ firefox
 apre firefox sullo schermo remoto.
-cat ./113b.avi  | ssh qbieshay@192.168.0.103  "cat - > prova.avi"
-copia prova.avi sul pc remoto
-To send a file:
-cat file | ssh ajw@dogmatix "cat > remote"
-Or:
-ssh ajw@dogmatix "cat > remote" < file
-To receive a file:
-ssh ajw@dogmatix "cat remote" > copy
-
 
 creare un file (compresa cartella ) in
 /etc/X11/xorg.conf.d/00-nomefile.conf
