@@ -1,3 +1,5 @@
+open a file with default app: xdg-open 
+set defaults for xdg-open: xdg-mime
 check execution time of a program: time program
 add a user to a group: gpasswd -a username groupname
 install from AUR on arch: download the tarball; tar -xvf tarball; cd cartella; makepkg -S; pacman -U risultato
