@@ -1,0 +1,21 @@
+
+sync a folder: rsync -avz -e ssh remoteuser@remotehost:/remote/dir /this/dir/ 
+sync a folder without rsync: ssh rob@192.168.0.112 -T -c arcfour -o Compression=no -x "tar zvcf - ~/Music" | tar zvxf - -C .
+streaming: ssh rob@192.168.0.110 "cat /Backup/DaSmistare/The\ Descent\ 2.avi " | mplayer - 
+or, instead of ip: rob@desktop.local
+start a graphic application on remote desktop: ssh remote_location; export DISPLAY=:0 && graphic application
+receive a file: ssh ajw@dogmatix "cat remote" > copy
+to send a file: cat file | ssh ajw@dogmatix "cat > remote"
+
+#Complex commands
+ssh-keygen -t rsa -b 4096" sul netbook
+questo ti crea un file .ssh/id_rsa (chiave privata) e .ssh/id_rsa.pub (chiave pubblica)
+questo file .pub lo sposti sul fisso come ~/.ssh/authorized_keys
+e poi chmod 0700 ~/.ssh
+poi si disabilita l'accesso via password
+modificare /etc/ssh/sshd_config cambiando  PasswordAuthentication da yes a no
+service ssh restart
+per collegarsi dal netbook usare
+ssh mpj@mastermindpj.no-ip.org
+guarda in /var/log/auth.log gli errori
+se dà problemi in solvabilità UseDNS no in sshd config
