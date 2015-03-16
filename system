@@ -1,3 +1,4 @@
+toggle powersave: sudo pm-powersave true
 open a file with default app: xdg-open 
 set defaults for xdg-open: xdg-mime
 check execution time of a program: time program
@@ -55,7 +56,7 @@ set dual-screen mode: xrandr --output VGA-0 --mode 1920x1080 --right-of DVI-0
 disable kernel modules and drivers: 
 /etc/modprobe.d/blacklist.conf
 	add blacklist <modulename>
-
+behaviour on events like lid close: /etc/systemd/logind.conf 
 
 GRUB:
 /etc/default/grub
@@ -81,4 +82,5 @@ folder with info on backlight:
 /sys/class/backlight/
 
 
-change PATH:  
+change PATH: edit ~/.profile like
+	export PATH=$PATH:/path/to/dir 
