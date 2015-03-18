@@ -17,6 +17,7 @@ x/d &nomevariable(int, or x/f for floats etc.)
 info breakpoints
 q quits
 k kills
+p nomefunzione stampa info su quella funzione (indirizzo di partenza, debuginfo...)
 gdb --args to pass arguments
 ni: allows to procede instruction per instruction
 next 4: moves 4 lines ahead (if you have the line-numbers information in the binary)

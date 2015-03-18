@@ -1,3 +1,7 @@
+Mio layout con regs, asm e storia nel cmd:
+layout asm
+layout reg
+focus cmd
 
 25.4 TUI-specific Commands
 ==========================
