@@ -1,8 +1,10 @@
 run a program: /lib/ld-linux-x86-64.so.2 program
 	if 32bit: /lib/ld-linux.so.2
-know info about an executable: ldd and readelf
+know info about an executable: ldd, readelf, objdump
+read the GoT: objdump -R
 cheat-engine like program: scanmem (gameconqueror is the GUI)
 strace per analizzare programma
+ltrace //
 netstat per vedere connessioni attive
 search jail per sandboxare programmi
 disabilitare moduli kernel: cercarli con lsmod e poi aggiungere blacklist <nomemodulo> in /etc/modprobe.d/blacklist.conf

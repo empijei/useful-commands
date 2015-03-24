@@ -1,0 +1,7 @@
+know info about an executable: ldd, readelf, objdump
+read the GoT: objdump -R
+cheat-engine like program: scanmem (gameconqueror is the GUI)
+strace per analizzare programma
+ltrace //
+netstat per vedere connessioni attive
+search jail per sandboxare programmi
