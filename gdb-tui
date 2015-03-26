@@ -1,0 +1,92 @@
+Mio layout con regs, asm e storia nel cmd:
+layout asm
+layout reg
+focus cmd
+
+25.4 TUI-specific Commands
+==========================
+
+The TUI has specific commands to control the text windows.  These
+commands are always available, even when GDB is not in the TUI mode.
+When GDB is in the standard mode, most of these commands will
+automatically switch to the TUI mode.
+
+   Note that if GDB's 'stdout' is not connected to a terminal, or GDB
+has been started with the machine interface interpreter (*note The
+GDB/MI Interface: GDB/MI.), most of these commands will fail with an
+error, because it would not be possible or desirable to enable curses
+window management.
+
+'info win'
+     List and give the size of all displayed windows.
+
+'layout next'
+     Display the next layout.
+
+'layout prev'
+     Display the previous layout.
+
+'layout src'
+     Display the source window only.
+
+'layout asm'
+     Display the assembly window only.
+
+'layout split'
+     Display the source and assembly window.
+
+'layout regs'
+     Display the register window together with the source or assembly
+     window.
+
+'focus next'
+     Make the next window active for scrolling.
+
+'focus prev'
+     Make the previous window active for scrolling.
+
+'focus src'
+     Make the source window active for scrolling.
+
+'focus asm'
+     Make the assembly window active for scrolling.
+
+'focus cmd'
+     Make the command window active for scrolling.
+
+'refresh'
+     Refresh the screen.  This is similar to typing 'C-L'.
+
+'tui reg float'
+     Show the floating point registers in the register window.
+
+'tui reg general'
+     Show the general registers in the register window.
+
+'tui reg next'
+     Show the next register group.  The list of register groups as well
+     as their order is target specific.  The predefined register groups
+     are the following: 'general', 'float', 'system', 'vector', 'all',
+     'save', 'restore'.
+
+'tui reg system'
+     Show the system registers in the register window.
+     Make the register window active for scrolling.
+
+'update'
+     Update the source window and the current execution point.
+
+'winheight NAME +COUNT'
+'winheight NAME -COUNT'
+     Change the height of the window NAME by COUNT lines.  Positive
+     counts increase the height, while negative counts decrease it.  The
+     NAME parameter can be one of 'src' (the source window), 'cmd' (the
+     command window), 'asm' (the disassembly window), or 'regs' (the
+     register display window).
+
+'tabset NCHARS'
+     Set the width of tab stops to be NCHARS characters.  This setting
+     affects the display of TAB characters in the source and assembly
+     windows.
+
+
