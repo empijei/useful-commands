@@ -1,4 +1,6 @@
 know info about an executable: ldd, readelf, objdump
+Displays open files (including IP sockets): lsof
+Displays names in a binary, that is, the symbol table: nm
 read the GoT: objdump -R
 cheat-engine like program: scanmem (gameconqueror is the GUI)
 strace per analizzare programma

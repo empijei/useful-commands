@@ -1,3 +1,4 @@
+search a package that contains a command: pkgfile command
 sort numbers of different length: sort --version-sort
 toggle powersave: sudo pm-powersave true
 open a file with default app: xdg-open 
