@@ -1,3 +1,4 @@
+get own mac and info: ifconfig -a
 active connections: netstat
 parallel download: cat urlfile | parallel --gnu "wget {}" 
 echo server: ncat -l 2000 --keep-open --exec "/bin/cat"
