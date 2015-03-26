@@ -1,0 +1,62 @@
+.easy-archives .fixed {
+	clear:both;
+	height:1px;
+	overflow:hidden;
+}
+.easy-archives .closed {
+	display:none;
+}
+.easy-archives .open-button, 
+.easy-archives .closed-button {
+	width:16px;
+	height:16px;
+	display:block;
+	float:left;
+}
+.easy-archives .open-button {
+	background:url(img/open.gif) left no-repeat;
+}
+.easy-archives .closed-button {
+	background:url(img/closed.gif) left no-repeat;
+}
+.easy-archives .detail {
+	font-weight:bolder;
+	float:left;
+}
+.easy-archives .month {
+	padding-bottom:5px;
+	margin-left: 30px;
+}
+#archives .easy-archives  ul {
+	margin:5px 0px 5px;
+}
+.easy-archives .month li {
+	list-style:none;
+	padding:1px 0 1px 16px !important;
+	padding:1px 0;
+}
+.easy-archives em {
+	margin-left:5px;
+}
+.easy-archives .filter {
+	height:24px;
+	padding-bottom:10px;
+}
+.easy-archives .filter .ea_year, 
+.easy-archives .filter .ea_author {
+	font-weight:bolder;
+}
+.easy-archives #ea_ajax_loader {
+	background:url(img/ajax-loader.gif) left no-repeat;
+	padding-left:24px;
+	height:16px;
+	line-height:16px;
+	margin-left:10px;
+}
+.easy-archives .filter .ea_select, 
+.easy-archives .filter .ea_button {
+	margin-right:10px;
+}
+#easy-archives {
+	padding-bottom: 30px;
+}
