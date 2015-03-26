@@ -11,6 +11,7 @@ restart networking: /etc/init.d/network restart
 utility like telnet, useful to create basic packets and networking: nc
 obtain route table: route -n
 obtain forwarding table: arp -n
+obtain router mac address: arp -a
 network manager cli: nmcli
 obtain an ip from an url: dig +short <url>
 search with default browser on the internet: surfraw OR sr <search engine> <keywords>

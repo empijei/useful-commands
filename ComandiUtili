@@ -59,7 +59,7 @@ backup Dropbox:
 cp -avurf ~/Dropbox /Backup/Dropbox
 
 
-comprimere al massimo con tar env GZIP=-9 tar cvzf file.tar.gz /path/to/directory
+comprimere al massimo con tar: GZIP=-9 tar cvzf file.tar.gz /path/to/directory
 forzare dist-upgrade: sudo do-release-upgrade -d
 
 vedere files più grandi in un cartella lasciando un log:
