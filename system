@@ -1,3 +1,5 @@
+know the keycode of a key: cat and then press the key
+mount all devices: sudo mount -a
 search a package that contains a command: pkgfile command
 sort numbers of different length: sort --version-sort
 toggle powersave: sudo pm-powersave true
