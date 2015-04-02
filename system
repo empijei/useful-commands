@@ -1,5 +1,7 @@
 know the keycode of a key: cat and then press the key
 mount all devices: sudo mount -a
+find the path of a command: whereis zsh
+change system shell: chsh -s /usr/bin/zsh
 search a package that contains a command: pkgfile command
 sort numbers of different length: sort --version-sort
 toggle powersave: sudo pm-powersave true
