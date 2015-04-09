@@ -1,3 +1,4 @@
+mount an mtp device: jmtpfs /foldertomountiton
 compare two files: diff or cmp
 better and improved version of dd: dcfldd
 sort filers by size recursively: du -a | sort -n
