@@ -3,6 +3,7 @@ git config --global user.name "RobClap"
 git config --global user.email "robclap8@gmail.com"
 git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=3600'
+git config --global core.editor "vim"
 
 INIT a repo
 touch README.md
