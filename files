@@ -1,5 +1,6 @@
 compare two files: diff or cmp
 better and improved version of dd: dcfldd
 sort filers by size recursively: du -a | sort -n
+icompress with highest compress ratio: lzma -9 file
 #Complex commands
 copy the content of a folder into another folder: cp -ar /source/. /dest/
