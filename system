@@ -1,5 +1,6 @@
 spawn a process that survives the shell: nohup process & OR process &; disown
 change screen brightness: xbacklight
+see all connected usb devices: lsusb
 know the keycode of a key: cat and then press the key
 mount all devices: sudo mount -a
 find the path of a command: whereis zsh
