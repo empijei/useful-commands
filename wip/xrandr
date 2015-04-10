@@ -1,0 +1,23 @@
+~$ cvt 1600 900 60
+# 1600x900 59.95 Hz (CVT 1.44M9) hsync: 55.99 kHz; pclk: 118.25 MHz
+Modeline "1600x900_60.00"  118.25  1600 1696 1856 2112  900 903 908 934 -hsync +vsync
+~$ sudo xrandr --newmode  "1600x900_60.00"  118.25  1600 1696 1856 2112  900 903 908 934 -hsync +vsync 
+[sudo] password for rob: 
+~$ sudo xrandr --addmode eDP1 1600x900_60.00
+~$ xrandr
+Screen 0: minimum 8 x 8, current 1920 x 1080, maximum 32767 x 32767
+eDP1 connected 1920x1080+0+0 (normal left inverted right x axis y axis) 276mm x 156mm
+   1920x1080     60.04*+
+   1400x1050     59.98  
+   1280x1024     60.02  
+   1280x960      60.00  
+   1024x768      60.00  
+   800x600       60.32    56.25  
+   640x480       59.94  
+   1600x900_60.00  59.95  
+DP1 disconnected (normal left inverted right x axis y axis)
+DP2 disconnected (normal left inverted right x axis y axis)
+HDMI1 disconnected (normal left inverted right x axis y axis)
+VIRTUAL1 disconnected (normal left inverted right x axis y axis)
+~$ xrandr --output eDP1 --mode 1600x900_60.00
+

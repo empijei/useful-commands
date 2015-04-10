@@ -1,0 +1,8 @@
+xmodmap -e "keycode  25 = w W w W uparrow uparrow" 
+xmodmap -e "keycode  39 = s S s S downarrow downarrow"
+xmodmap -e "keycode  40 = d D d D rightarrow rightarrow"
+xmodmap -e "keycode 38 = a A a A agrave leftarrow"
+xmodmap -e "keycode 26 = e E e E egrave EuroSign" 
+xmodmap -e "keycode 31 = i I i I igrave"
+xmodmap -e "keycode 32 = o O o O ograve"
+xmodmap -e "keycode 30 = u U u U ugrave"

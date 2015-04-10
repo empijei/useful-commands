@@ -1,3 +1,4 @@
+ls -la to see al files with permissions
 mount an mtp device: jmtpfs /foldertomountiton
 compare two files: diff or cmp
 better and improved version of dd: dcfldd
