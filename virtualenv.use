@@ -1,0 +1,19 @@
+     Create a virtualenv:
+
+$ virtualenv my_env
+
+    Activate the virtualenv:
+
+$ source my_env/bin/activate
+
+    Install some package inside the virtualenv (say, Django):
+
+(my_env)$ pip install django
+
+    Do your things
+    Leave the virtualenv:
+
+(my_env)$ deactivate
+
+pip: isntall a specific version
+	pip install cython==0.20
