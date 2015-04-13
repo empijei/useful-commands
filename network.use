@@ -1,3 +1,4 @@
+traffic analysys: etherape, tcpdump, tcpflow
 get own mac and info: ifconfig -a
 active connections: netstat
 parallel download: cat urlfile | parallel --gnu "wget {}" 

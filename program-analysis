@@ -1,0 +1,140 @@
+know info about an executable: ldd, readelf, objdump
+Displays open files (including IP sockets): lsof
+Displays names in a binary, that is, the symbol table: nm
+read the GoT: objdump -R OR  objdump --disassemble ./got.so
+cheat-engine like program: scanmem (gameconqueror is the GUI)
+analyze a program : strace or ltrace
+see active connections: netstat
+sandboxing untrusted programs : search jail
+program sections: readelf --sections
+
+#COMMENTS and notes
+STRACE:
+mostra tutte le chiamatedi sistema del programma che sta analizzando
+Follows the execution of a process and monitors syscalls
+Offers a great way to see the big picture of a program
+behaviour
+strace by default prints out all the syscalls of a process
+Since they usually are a TON -o <filename> redirects to a
+file :)
+to select only some syscalls relative to a peculiar function
+	-e=group 
+	process
+	network
+	file
+	signal
+
+FILE DESCRIPTORS and Pipelines
+Executing a single filedescriptor<> filename opens your file for reading and writing (e.g. exec 3<>)
+read -n number of chars variable name reads, by default from stdin, n characters into the variable
+read -n number of chars variable name <&3 reads from fd 3, n characters into the variable
+A simple echo ‘‘foo’’ may be used to write into an open fd through redirection (e.g. echo ‘‘foo’’>3)
+To close a fd, simply redirect it to - (e.g. exec 3>&- closes 3)
+Employing a pipe character (i.e. |) chains the standard output of the leading command to the trailing of the last one
+The stdbuf command allows to specify how many bytes should the input (-i), output (-o), and error(-e) buffers be long
+Comes in terribly handy when employing nc or whenever you want a stream to be pushing characters down the pipe instantly
+Simply prepend a stdbuf -i0 -o0 -e0 and enjoy!
+Removing the buffering is critical if you’re juggling with nc and network connections
+
+LSOF:
+the -c <regex> option allows to list all the files opened by any command starting with <regex>
+the +D option allows to list all open files in a directory
+the -u option allows to list all open files of a certain user
+the options are usually combined with a logical OR
+-a switches to AND combining
+the -i option allows to list all the sockets open from-to a certain IP address
+the -P option prints numeric ports representations
+the -p option allows to list all open files from a precise PID
+the options may be reversed through prepending the usual caret (i.e. ^) symbol
+
+KILL:
+kill is a commandline tool to ... send signals :)
+Common syntax: kill <signal> [options]
+Under Linux there are only two unforgiv... ahem , unblockable signals:
+SIGKILL : wipes away a process forcefully
+SIGSTOP : freezes the process
+Since signals are resolved when a process is going to be run,
+STOP then shoot signals to die-hard processes
+Resume them with a SIGCONT and they’ll be gone
+Killing a process with a SIGQUIT signal will also cause a core dump, helpful for digging into foreign files :) 
+	[in case core dump files are not created, you probably need a shot of ulimit -c unlimited]
+A combined action of kill and lsof makes an excellent forkbomb squad :
+lsof -t outputs only the PIDs of the process owning the files (remember , libraries and mmaps are files :))
+using a combination of shell expansion and kill allows you to wipe a clean slate of a lot of forkbombs
+
+WATCH:
+does exactly the tricks
+-n <seconds> specifies how often to refreshing
+-d highlights the changes from the last time (useful for
+waking you up)
+
+NETCAT:
+nc 1.2.3.4 8000 -v
+(il -v torna utile per capire se una connessione tcp `e stabilita o no)
+nc -u 1.2.3.4 8000 -v
+connessione UDP, non c’`e stato, non sapete se `e stabilita
+nc -l -p 8000
+Apre un server tcp sulla porta 8000
+Old but good: nc -l -p 8000 -e /bin/bash
+collega il server a /bin/bash
+
+TCPDUMP:
+tcpdump -i eth0 -n “”
+	Vi mostra tutto il traffico sull’interfaccia eth0 a livello 3. Con
+	-e vi mostra anche il livello 2
+	L’opzione -n `e importante, altrimenti tcpdump tenta di fare l’rDNS di TUTTI gli IP che vede passare...
+	“” = espressione bpf (Berkeley Packet Filter) vuota, cio`e match di tutto
+esempi (tutti alternativi):
+tcpdump -i eth0 \
+	-n “arp”
+	-n “src 10.0.0.2”
+	-n “src or dst 10.0.0.2”
+	-n “tcp port 443”
+	-n “src tcp port 443”
+	-n “(src 10.0.0.2) and (tcp port 443)”
+tcpdump vi mostra anche il traffico firewallato (`e di fronte institution-logo-filen
+al kernel)
+-w dumpfile.pcap salva in un file .pcap
+non si può greppare, semplicemente, è necessario 
+	stdbuf -i0 -o0 -e0 tcpdump -i eth0 -n “<expression>” |
+	stdbuf -i0 -o0 -e0 grep “10.10.0.1”
+
+NGREP:
+ngrep -d eth0 -W byline “<match expression>”“<bpf expression>”
+Parametro -n non necessario
+match espression è una regexp (sintassi GNU), ad esempio:
+ngrep -d eth0 -W byline “HTTP/1.1”“tcp port 80”
+Con -W byline ci esce una sintassi simpatica human-friendly
+Trucco che pu`o tornare utile:
+	ngrep -d eth0 -n 1 -W byline “HTTP/1.1”“tcp port 80” &&
+	echo “ALERT ALERT”
+	con -n 1 , ngrep termina non appena vede 1 pacchetto che
+	matcha e termina
+	Viene eseguito quindi il programma dopo nella riga
+ngrep -K 1 -d eth0 ...........
+	Termina le connessioni TCP che matchano inviando un RST ad ambi lati
+
+TCPFLOW:
+Se abbiamo un file pcap in mano possiamo ricostruire i flussi tcp passati con tcpflow, dandogli in pasto il file pcap
+tcpdump -r dump.pcap
+Vengono generati dei file nella cartella dove state lavorando, uno per ogni flusso
+Se c’`e un file binario passato in un flusso questo torna comodo per tirarlo fuori
+
+ETHERAPE:
+Monitorning tool utile
+
+PYTHON CLIENT:
+import socket
+s = socket.socket()
+s.connect((’127.0.0.1’,9000))
+s.send(’ciao!\n’)
+print s.recv(1024)
+
+PYTHON SERVER:
+import socket
+s = socket.socket()
+s.bind(( ,9001))
+s.listen(5)
+conn, addr = s.accept()
+conn.send(’ciao!’)
+print conn.recv(1024)

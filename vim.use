@@ -1,8 +1,17 @@
 :set paste per incollare senza tabulazioni superflue
 gg=G per reindentare il documento (= indenta; gg inizio; G fine)
 access clipboard: "+y, "+p 
-quit all: :qa
-
+quit all: :qa (in general actions on all buffers are trailed with a )
+indent multiple (i.e 5) lines: 5>>
+indent: >
+indent the current scope: >%
+paste according indendtation: ]p
+fix indent on a known language: =i{ reindents "inner block" (inside the braces).
+								=a{ reindents "a block" (including the braces).
+								=2a{ reindents 2 blocks (this block and containing block).
+						With the cursor on { or }:
+								=% indents the block (including matching brace).
+								>% or <% indents or unindents the block.
 
 Place the cursor on any variable in your program.
 

@@ -1,3 +1,8 @@
+load virtualbox kernel modules: sudo modprobe vboxdrv
+boot time usage recap: systemd-analyze
+recreate grub conf: grub-mkconfig -o /boot/grub/grub.cfg
+local install in Fedora for rpm: yum localinstall
+force dist-upgrade on Ubuntu: sudo do-release-upgrade -d
 analyze startup time usage: systemd-analyze
 spawn a process that survives the shell: nohup process & OR process &; disown
 change screen brightness: xbacklight

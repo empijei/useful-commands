@@ -1,122 +1,10 @@
-run a program: /lib/ld-linux-x86-64.so.2 program
-	if 32bit: /lib/ld-linux.so.2
-know info about an executable: ldd, readelf, objdump
-read the GoT: objdump -R
-cheat-engine like program: scanmem (gameconqueror is the GUI)
-strace per analizzare programma
-ltrace //
-netstat per vedere connessioni attive
-search jail per sandboxare programmi
-disabilitare moduli kernel: cercarli con lsmod e poi aggiungere blacklist <nomemodulo> in /etc/modprobe.d/blacklist.conf
-scaricare lista di files in parallelo cat urlfile | parallel --gnu "wget {}"
-rimuovere \n da stringa: sed ':begin;$!N;s/\n//;tbegin'
-ora in binario: echo $(printf '%05d' $(bc<<<"obase=2; `date +%H`")):$( printf '%06d' $(bc<<<"obase=2; `date +%M`"))
-
-python-mysqldb per connessione database python
-take a screenshot: import -window root -quality 98 screenshot.png
-setxkbmap -layout us -variant altgr-intl mettere tastiera in inglese + dead keys
-echo server: ncat -l 2000 --keep-open --exec "/bin/cat"
-nmap per fare port mapping
-unity-control-center per impostazioni o gnome-control-center se non ubuntu
-/usr/share/awesome/lib percorso lib di awesome
-ifstat per stat network usage
-dmesg per kernel log
-wall per broadcast di un messaggio su tutti i tty (ctrl+d per terminare il messaggio)
-xev per registrare eventi tastiera e mouse
-aggiungere exec awesome in ~.xinitrc (se non esiste crearlo)
-pcmanfm per file manager su Lubuntu
-
-aggiungere exec awesome in ~.xinitrc (se non esiste crearlo)
-
-GRUB:
-sudo nano /etc/default/grub
-Find out this line:
-
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
-Change it to:
-
-GRUB_CMDLINE_LINUX_DEFAULT="text"
-
-	xrandr -q per vedere periferiche X
-	esempio epr dual screen xrandr --output VGA-0 --mode 1920x1080 --right-of DVI-0
-
-fbi per visualizzare immagini
-w3m browser per fb	
-less legge i pdf
-finch per le chat
-awesome windows manager 
-install poppler-utils e screen
-splittare il terminale: screen
-You can do it in screen the terminal multiplexer.
-
-clock(){ ( while : ; do title `date`; sleep 1; done) & }
-
-tr per elaborare testi, più semplice di sed
-info sul drive df -Ph
-lsblk vedere le usb con la loro etichetta e dimensione
-
-backup Dropbox:
-cp -avurf ~/Dropbox /Backup/Dropbox
-
-
-comprimere al massimo con tar: GZIP=-9 tar cvzf file.tar.gz /path/to/directory
-forzare dist-upgrade: sudo do-release-upgrade -d
-
-vedere files più grandi in un cartella lasciando un log:
- du | sed -r -e 's/[0-9]/0000000&/' -e 's/0*([0-9]{8}[^0-9])/\1/' | sort > ~/sizelog.log && tail ~/sizelog.log 
-
-gnome-shell-extension-prefs per preferenze estensioni
-reset per ripristinare il teminale dopo averlo sputtanato con cat
-per potere cambiare titol a tabs:
-commentare ciò che segue in .bashrc
-# If this is an xterm set the title to user@host:dir
-#case "$TERM" in
-#xterm*|rxvt*)
-#    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-#    ;;
-#*)
-#    ;;
-#esac
-e poi usare la funzione
-echo -en "\033]0;Titolo\a"
-oppure
-title(){ 
-echo -en "\033]0;$1\a" 
-}
-
-
-trap to trap a kill command
-(esempio trap 'kill -HUP $pid' 0 HUP INT TERM) //se viene killato propaga HUP al processo pid
-grep -v inverte la selezione
-vedere se un certo pid esiste
-ls /proc/ | grep -E "^[0-9]+$" | grep -e "^905$"
+Circular bash pipe, also named pipelines:
+$ mkfifo outside
+$ <outside calc | square >outside &
+$ echo "1" >outside ## Trigger the loop to start
 
 bytebeat controllare
 aplay per riprodurre pipeline
-find . -name '*.foo' -exec cat {} \;
-padding numbers with 0 :
-sed -r -e 's/[0-9]/0000000&/' -e 's/0*([0-9]{8}[^0-9])/\1/'
-
-sort to sort
-
-Progressbar for mysql
- pv enwiki-20141208-pagelinks.sql | mysql -p wikipedia_links
-
-dimensione cartella
-du
-
-Progressbar for tar (progress in terminal with pipeline)
-SIZE=`du -sk folder-with-big-files | cut -f 1`
-And then:
-tar cvf - folder-with-big-files | pv -p -s ${SIZE}k | \ 
-     bzip2 -c > big-files.tar.bz2
-
-du per dimensione files
-surfraw per googlare da terminale 
-type nomealias
-stampa alias
-
-alias stampa liasta aliases
 
 xsetwacom --set 12 TOUCH off
 xsetwacom --list devices
@@ -133,13 +21,10 @@ gsettings set org.gnome.desktop.wm.preferences theme "Adwaita"
 gsettings set org.gnome.desktop.interface icon-theme "Adwaita"
 gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
 
-to use gtk dialogs from bash use zenity
-yum localinstall per *.rpm
 Contare tutte righe di un progetto
 shopt -s globstar
 wc -l **/*.java
-autorun root level: /etc/rc.local
-fsck per checkdisk
+<=================================>
 ntfsclone --rescue per backups
 wc info sui files
 apt-get -f install risolve le dipendenze di pacchetti installati

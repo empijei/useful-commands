@@ -1,3 +1,4 @@
+reproduce a pipelie: aplay
 graphical web browsing (must be superuser): links2 -g
 printing to printer: lpr
 list processes and proc info: ps 
