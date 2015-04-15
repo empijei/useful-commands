@@ -1,3 +1,4 @@
 simple translation-substituition tool: tr
 #Complex commands
 Remove \n from string: ':begin;$!N;s/\n//;tbegin'
+Replace ; with \n: sed $'s/;/;\\\n/g'

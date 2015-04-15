@@ -1,3 +1,4 @@
+Kernel & ACPID journal: journalctl -f
 => /var/log/messages : General log messages
 
 => /var/log/boot : System boot log

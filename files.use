@@ -1,4 +1,5 @@
-ls -la to see al files with permissions
+sort files by date: ls -t (-tr for reverse order)
+to see al files with permissions: ls -la
 mount an mtp device: jmtpfs /foldertomountiton
 compare two files: diff or cmp
 better and improved version of dd: dcfldd

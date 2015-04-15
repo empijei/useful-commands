@@ -6,6 +6,7 @@ or, instead of ip: rob@desktop.local
 start a graphic application on remote desktop: ssh remote_location; export DISPLAY=:0 && graphic application
 receive a file: ssh ajw@dogmatix "cat remote" > copy
 to send a file: cat file | ssh ajw@dogmatix "cat > remote"
+ssh file transfer: scp (example:scp [options] original_file user@server:path/to/file) (invert operands to copy from remote)
 
 #Complex commands
 ssh-keygen -t rsa -b 4096" sul netbook

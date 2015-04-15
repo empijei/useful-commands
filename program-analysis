@@ -7,6 +7,7 @@ analyze a program : strace or ltrace
 see active connections: netstat
 sandboxing untrusted programs : search jail
 program sections: readelf --sections
+list dynamic libs needed by a program: ldd
 
 #COMMENTS and notes
 STRACE:
@@ -46,6 +47,7 @@ the -i option allows to list all the sockets open from-to a certain IP address
 the -P option prints numeric ports representations
 the -p option allows to list all open files from a precise PID
 the options may be reversed through prepending the usual caret (i.e. ^) symbol
+lsof -nPi to see port used, grep for LISTEN to see port opened to listen
 
 KILL:
 kill is a commandline tool to ... send signals :)
