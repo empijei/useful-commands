@@ -1,4 +1,5 @@
 know info about an executable: ldd, readelf, objdump
+hex editor: bless
 Displays open files (including IP sockets): lsof
 Displays names in a binary, that is, the symbol table: nm
 read the GoT: objdump -R OR  objdump --disassemble ./got.so
@@ -8,8 +9,13 @@ see active connections: netstat
 sandboxing untrusted programs : search jail
 program sections: readelf --sections
 list dynamic libs needed by a program: ldd
+hex dump: xdd (on vim :%!xdd, before saving :%!xdd -r)
+get type of a file: file
 
 #COMMENTS and notes
+Force the load of a library to overwrite system calls:
+LD_PRELOAD="`pwd`/libasd.so" ./target.elf
+
 STRACE:
 mostra tutte le chiamatedi sistema del programma che sta analizzando
 Follows the execution of a process and monitors syscalls
