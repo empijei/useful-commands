@@ -1,3 +1,5 @@
+info on resource status and usage: sudo tlp-stat
+access input interfaces: xinput
 load virtualbox kernel modules: sudo modprobe vboxdrv
 boot time usage recap: systemd-analyze
 recreate grub conf: grub-mkconfig -o /boot/grub/grub.cfg
