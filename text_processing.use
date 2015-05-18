@@ -1,4 +1,5 @@
 simple translation-substituition tool: tr
+url encoding: echo -ne '<script>window.location="http://polictf.it/";</script>' | xxd -plain | tr -d '\n' | sed 's/\(..\)/%\1/g'
 #Complex commands
 Remove \n from string: ':begin;$!N;s/\n//;tbegin'
 Replace ; with \n: sed $'s/;/;\\\n/g'
