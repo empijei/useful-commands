@@ -1,4 +1,4 @@
-
+mount a remote folder: sshfs
 sync a folder: rsync -avz -e ssh remoteuser@remotehost:/remote/dir /this/dir/ 
 sync a folder without rsync: ssh rob@192.168.0.112 -T -c arcfour -o Compression=no -x "tar zvcf - ~/Music" | tar zvxf - -C .
 streaming: ssh rob@192.168.0.110 "cat /Backup/DaSmistare/The\ Descent\ 2.avi " | mplayer - 

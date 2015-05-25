@@ -1,4 +1,5 @@
 backtrace full
+find $esp, +2000, "7Af8Af9Ag"
 man gdb 
 run
 run 1 ”abc” passes 1 via argv[1] and "abc" as argv[2]

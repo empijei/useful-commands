@@ -3,7 +3,7 @@ disable randomized stack: /proc/sys/kernel/randomize_va_space 0 1 2
 useful extension of gdb: gdb-peda
 asm dump for rop search: objdump --no-show-raw-insn -d executable
 hex dump: hexdump
-compile code with no security: gcc -fno-stack-protector -z execstack -g
+compile code with no security: gcc -mpreferred-stack-boundary=4 -O0 -fno-stack-protector -z execstack -g vuln.c
 readelf: readelf /bin/ls --section-headers --wide
 hex editor: bless
 Displays open files (including IP sockets): lsof
@@ -18,10 +18,7 @@ list dynamic libs needed by a program: ldd
 hex dump: xdd (on vim :%!xdd, before saving :%!xdd -r)
 get type of a file: file
 check for stack base address: ( LD_SHOW_AUXV=yes ls ) | grep AT_BASE
-
-#COMMENTS and notes
-Force the load of a library to overwrite system calls:
-LD_PRELOAD="`pwd`/libasd.so" ./target.elf
+Force the load of a library to overwrite system calls: LD_PRELOAD="`pwd`/libasd.so" ./target.elf (gcc -shared -fPIC to compile a library)
 
 STRACE:
 mostra tutte le chiamatedi sistema del programma che sta analizzando
