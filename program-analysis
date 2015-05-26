@@ -1,3 +1,4 @@
+x86 assembler: nasm
 know info about an executable: ldd, readelf, objdump
 disable randomized stack: /proc/sys/kernel/randomize_va_space 0 1 2
 useful extension of gdb: gdb-peda
@@ -10,7 +11,8 @@ Displays open files (including IP sockets): lsof
 Displays names in a binary, that is, the symbol table: nm
 read the GoT: objdump -R OR  objdump --disassemble ./got.so
 cheat-engine like program: scanmem (gameconqueror is the GUI)
-analyze a program : strace or ltrace
+analyze a program calls : strace or ltrace
+graphical frontend for gdb: ddd
 see active connections: netstat
 sandboxing untrusted programs : search jail
 program sections: readelf --sections
