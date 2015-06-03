@@ -1,4 +1,5 @@
 test time requesd for a command to execute: time
+browse an xml file: xmllint
 intercept a kill signal: trap
 	example: trap 'kill -HUP $pid' 0 HUP INT TERM) 
 	if killed sends HUP to the process $pid
