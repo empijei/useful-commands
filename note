@@ -1,1 +1,4 @@
 wol -i 192.168.0.110 6c:62:6d:5f:2e:a2
+
+make steam work:
+find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" \) -print -delete
