@@ -1,4 +1,5 @@
 automatically configure secondary screen: xrandr --output DP1 --auto --right-of eDP1
+scale speed on mplayer without scaling the pitch:  mplayer -af scaletempo
 info on resource status and usage: sudo tlp-stat
 access input interfaces: xinput
 load virtualbox kernel modules: sudo modprobe vboxdrv
