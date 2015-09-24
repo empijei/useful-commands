@@ -1,4 +1,6 @@
 test time requesd for a command to execute: time
+cat something to clipboard: xclip -selection clipboard
+stream a video file with capability to seek: cat file | mplayer -cache 2048 -
 log all in and out of the prompt: script logfile.log ; in the end use exit
 grep stderr: command 2>&1 >/dev/null | grep 'something'
 browse an xml file: xmllint
