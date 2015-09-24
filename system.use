@@ -40,7 +40,7 @@ kernel messages,log: dmesg
 broadcast a message in all tty: wall (to terminate the message press ctrl+d)
 record input events for mouse and keyboard in X: xev
 list video output devices, screens: xrandr -q
-drives infos: df -Ph
+drives infos and available space: df -Ph
 list usb devices: lsblk
 gnome-shell extensions prefs: gnome-shell-extension-prefs
 wacom utils: xsetwacom
