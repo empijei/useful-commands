@@ -1,4 +1,6 @@
 simple translation-substituition tool: tr
+add line numbers: nl -nrz -w9 filename.txt
+process each line of a file: while read line; do echo -e "$line\n"; done < file.txt
 url encoding: echo -ne '<script>window.location="http://polictf.it/";</script>' | xxd -plain | tr -d '\n' | sed 's/\(..\)/%\1/g'
 #Complex commands
 Remove \n from string: ':begin;$!N;s/\n//;tbegin'
