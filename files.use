@@ -25,3 +25,9 @@ Progressbar for tar (progress in terminal with pipeline)
     	bzip2 -c > big-files.tar.bz2
 
 
+Loop over files with spaces in the name: 
+old_ifs=$IFS
+IFS="
+
+"
+$ for i in *; do ls $i; done;
