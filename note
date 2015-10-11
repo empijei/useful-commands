@@ -1,4 +1,6 @@
 wol -i 192.168.0.110 6c:62:6d:5f:2e:a2
 
+add tor signature:curl "https://pgp.mit.edu/pks/lookup?op=get&search=0x4E2C6E8793298290" -o - | gpg --import
+
 make steam work:
 find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" \) -print -delete
