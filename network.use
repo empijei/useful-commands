@@ -30,7 +30,7 @@ host info: host
 #Complex commands
 flood a port: cat /dev/urandom | nc -u ip port
 download something while uncompressing: wget -O - "url" | tar xzf -
-
+netcat proxy: while : ; do nc -l 80  0<backpipe | nc school.fluxfingers.net 1523 1>backpipe; done
 
 #Useful files
 network interfaces:
@@ -48,4 +48,5 @@ network nameservers (dns):
     	nameserver 192.168.1.254
     	nameserver 8.8.8.8
     	nameserver 202.54.2.5
+
 

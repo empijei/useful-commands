@@ -1,4 +1,5 @@
 test time requesd for a command to execute: time
+set shell buffer size to 0: stdbuf -i0 -o0 -e0 command
 see the background jobs' ip: jobs -ps
 see the aliases for a command: type command
 set tab completion case insensitive: set completion-ignore-case on in .inputrc
@@ -16,6 +17,7 @@ print an alias: type aliasname
 create simple gtk dialogs: zenity
 reset terminal if font gets screwed: reset
 In zsh use cat to discover a key, then bindkey to bintti to a function
+circular pipe: mkfifo backpipe; nc -l 12345  0<backpipe | nc www.google.com 80 1>backpipe
 #Complex commands
 write stderr ouput of a program to the same filedescriptor than stdout: command * 2>&1
 

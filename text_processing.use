@@ -1,4 +1,7 @@
 simple translation-substituition tool: tr
+render a tex | latex document: pdflatex doc.tex
+real-time markdown view: livedown (npm install -g livedown)
+grep binary files forcing the output: grep -a --text
 count pages in pdfs:for i in *; do pdfinfo $i | grep Pages | egrep -o '[0-9]*' 
 add line numbers: nl -nrz -w9 filename.txt
 process each line of a file: while read line; do echo -e "$line\n"; done < file.txt
