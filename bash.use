@@ -1,3 +1,6 @@
+go back to previous folder: cd -
+redirect to tcp/udp sockets: /dev/tcp/ and /dev/udp
+clear screen: ctrl+l or clear
 test time requesd for a command to execute: time
 set shell buffer size to 0: stdbuf -i0 -o0 -e0 command
 see the background jobs' ip: jobs -ps
