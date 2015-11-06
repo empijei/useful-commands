@@ -1,4 +1,5 @@
 :set paste per incollare senza tabulazioni superflue
+go back to last cursor postion: ``
 oneliner command: vim -c "5,10s/a/b/g |wq" filename replaces all occurrence of "a" to "b" in line 5-10 and saves
 gg=G per reindentare il documento (= indenta; gg inizio; G fine)
 access clipboard: "+y, "+p 
@@ -6,7 +7,7 @@ quit all: :qa (in general actions on all buffers are trailed with a )
 indent multiple (i.e 5) lines: 5>>
 indent: >
 indent the current scope: >%
-paste according indendtation: ]p
+paste according indentation: ]p
 fix indent on a known language: =i{ reindents "inner block" (inside the braces).
 								=a{ reindents "a block" (including the braces).
 								=2a{ reindents 2 blocks (this block and containing block).
@@ -22,3 +23,9 @@ g* search for the word under the cursor (like *, but g* on 'rain' will find word
 g# same as g* but in backward direction.
 gg goes to the first line in the buffer (or provide a count before the command for a specific line).
 G goes to the last line (or provide a count before the command for a specific line).
+
+vimdiff:
+]c :        - next difference
+[c :        - previous difference
+do          - diff obtain
+dp          - diff put

@@ -1,4 +1,5 @@
 simple translation-substituition tool: tr
+add line number: cat -n
 render a tex | latex document: pdflatex doc.tex
 real-time markdown view: livedown (npm install -g livedown)
 grep binary files forcing the output: grep -a --text

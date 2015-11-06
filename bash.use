@@ -1,4 +1,5 @@
 test time requesd for a command to execute: time
+access last argument passed to previous command: !$
 set shell buffer size to 0: stdbuf -i0 -o0 -e0 command
 see the background jobs' ip: jobs -ps
 see the aliases for a command: type command
