@@ -1,4 +1,5 @@
 automatically configure secondary screen: xrandr --output DP1 --auto --right-of eDP1
+terminal task manager: htop
 sound options : alsamixer
 encrypted folders in user-space: encfs
 disk usage analyzer: ncdu

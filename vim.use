@@ -1,5 +1,7 @@
 :set paste per incollare senza tabulazioni superflue
 go back to last cursor postion: ``
+folding: z
+unfold all: zR || fold all: zM
 oneliner command: vim -c "5,10s/a/b/g |wq" filename replaces all occurrence of "a" to "b" in line 5-10 and saves
 gg=G per reindentare il documento (= indenta; gg inizio; G fine)
 access clipboard: "+y, "+p 
