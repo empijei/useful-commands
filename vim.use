@@ -1,4 +1,5 @@
 :set paste per incollare senza tabulazioni superflue
+go back to last buffer (including folder view): ctrl+o
 go back to last cursor postion: ``
 folding: z
 unfold all: zR || fold all: zM
@@ -31,3 +32,10 @@ vimdiff:
 [c :        - previous difference
 do          - diff obtain
 dp          - diff put
+
+To comment out blocks in vim:
+hit ctrl+v (visual block mode)
+use the down arrow keys to select the lines you want (it won't highlight everything)
+Shift+i (capital I)
+insert the text you want, i.e. '% '
+Press ESC

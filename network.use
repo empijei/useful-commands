@@ -1,4 +1,5 @@
 linux default firewall: iptables
+socat an executable: socat tcp-l:port,reuseaddr,fork exec:./file
 get gateway: route -n
 list all links in a webpage: lynx --dump http://downloadme.com | grep http
 monitor network usage: bmon
