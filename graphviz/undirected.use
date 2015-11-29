@@ -1,14 +1,15 @@
 //compile with dot -Kfdp -Tpng file.dot -o file.png
+//TODO add horiz lines
 graph Deploy{
 	concentrate=true	
-	node[shape=rect]
+	node[shape=record]
 	subgraph InternalNetwork{
 		label="Internal Network"
 			subgraph clusterDatabaseDevice{
 				label="<<Device>>\n:DatabaseServer\n{OS=CentOS}"
 					subgraph clusterDBMS{
 						label="<<execution environment>>\n:DBMS"
-							MySQL[label=":MySQL\n\nAccounts Data\nQueues Status\nPlaced Reservations\nActive Requests"]
+							MySQL[label="{:MySQL|Accounts Data\nQueues Status\nPlaced Reservations\nActive Requests}}"]
 					}
 			}
 	}
@@ -18,7 +19,7 @@ graph Deploy{
 				label="<<Device>>\n:FirewallMachine\n{OS=OpenWRT}"
 					subgraph clusterInternalFirewall{
 						label="<<execution environment>>\n:Firewall"
-							internalIptables[label=":iptables\n\nBlock all\nConsenst incoming on port\n3306 and responses"]
+							internalIptables[label="{:iptables|Block all\nConsenst incoming on port\n3306 and responses}"]
 					}
 			}
 	}
@@ -26,15 +27,15 @@ graph Deploy{
 		label="<<Device>>\n:WebServerMachine\n{OS=CentOS}"
 			subgraph clusterWebServer{
 				label="<<execution environment>>\n:WebServer"
-					nginx[label=":NginX\n\nWebpage\nMobileApps Connection\nAPIs"]
-					php[label=":PHP\n\ncomputation of Queues\nNotifications Handling\nBD Connections"]
+					nginx[label="{:NginX|Webpage\nMobileApps Connection\nAPIs}"]
+					php[label="{:PHP|computation of Queues\nNotifications Handling\nBD Connections}"]
 			}
 	}
 	subgraph clusterExternalFirewallDevice{
 		label="<<Device>>\n:FirewallMachine\n{OS=OpenWRT}"
 			subgraph clusterExternalFirewall{
 				label="<<execution environment>>\n:Firewall"
-					externalIptables[label=":iptables\n\nBlock all\nConsenst incoming on ports\n80,443 and responses"]
+					externalIptables[label="{:iptables|Block all\nConsenst incoming on ports\n80,443 and responses}"]
 			}
 	}
 	internet[shape=egg]
@@ -42,32 +43,32 @@ graph Deploy{
 		label="<<Device>>\n:Mobile Device\n{OS=Android|iOS|Windows Phone}"
 			subgraph clusterMobile{
 				label="<<execution environment>>\n:PhoneGap Web Browser"
-					clientApp[label=":Client App\n\nLocally saved content\nRemote Content\nBackground Service"]
-					driverApp[label=":Taxi driver App\n\nLocally saved content\nRemote Content\nBackground Service"]
+					clientApp[label="{:Client App|Locally saved content\nRemote Content\nBackground Service}"]
+					driverApp[label="{:Taxi driver App|Locally saved content\nRemote Content\nBackground Service}"]
 			}
 	}
 	subgraph clusterClientDevice{
 		label="<<Device>>\n:Client Machine\n{OS=any}"
 			subgraph clusterBrowser{
 				label="<<execution environment>>\n:Web Browser"
-					clientWebApp[label=":Client Application\n\nWeb App"]
-					adminApp[label=":Admin App\n\nWeb App"]
+					clientWebApp[label="{:Client Application|Web App}"]
+					adminApp[label="{:Admin App|Web App}"]
 			}
 	}
 	subgraph clusterAPIDevice{
 		label="<<Device>>\n:Any Machine\n{OS=any}"
 			subgraph clusterAPI{
 				label="<<execution environment>>\n:Anything that supports Http"
-					APIClient[label=":Client Application\n\nAPI Connection"]
+					APIClient[label="{:Client Application|API Connection}"]
 			}
 	}
 	clusterDatabaseDevice -- clusterInternalFirewallDevice
-		clusterInternalFirewallDevice -- clusterWebServerDevice
-		clusterWebServerDevice--clusterExternalFirewallDevice
-		clusterExternalFirewallDevice--internet
-		clusterMobileDevice--internet
-		clusterClientDevice--internet
-		clusterAPIDevice--internet
+	clusterInternalFirewallDevice -- clusterWebServerDevice
+	clusterWebServerDevice--clusterExternalFirewallDevice
+	clusterExternalFirewallDevice--internet
+	clusterMobileDevice--internet
+	clusterClientDevice--internet
+	clusterAPIDevice--internet
 }
 /*
    nginx[label=<<B>:NginX</B><BR/><BR/>Webpage<BR/>MobileApps Connection<BR/>APIs>]

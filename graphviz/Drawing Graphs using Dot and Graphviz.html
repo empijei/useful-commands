@@ -1,0 +1,766 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0041)http://www.tonyballantyne.com/graphs.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Drawing Graphs using Dot and Graphviz</title>
+<!-- 2014-04-12 Sat 10:13 -->
+
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Tony Ballantyne">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript" async="" src="./Drawing Graphs using Dot and Graphviz_files/ga.js"></script><script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012  Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-10476997-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>  
+<style type="text/css"></style></head>
+<body>
+<div id="content">
+<h1 class="title">Drawing Graphs using Dot and Graphviz</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-1">1. License</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-2">2. Introduction</a>
+<ul>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-2-1">2.1. What is DOT?</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-2-2">2.2. What is Graphviz?</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-2-3">2.3. Who is this document for?</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-2-4">2.4. Related Materials</a></li>
+</ul>
+</li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-3">3. Setup</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-4">4. Basic Examples</a>
+<ul>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-4-1">4.1. Simple Graph</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-4-2">4.2. Same Graph, Different Layout</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-4-3">4.3. Simple Digraph (Directional Graph)</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-4-4">4.4. Simple Digraph with Labels</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-4-5">4.5. Same Graph, Different Shape and Colour</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-4-6">4.6. Summary</a></li>
+</ul>
+</li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-5">5. More Advanced</a>
+<ul>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-5-1">5.1. Saving Time</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-5-2">5.2. Records</a></li>
+</ul>
+</li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-6">6. Some Example Graphs</a>
+<ul>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-6-1">6.1. Finite State Machine</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-6-2">6.2. Data Flow Diagrams</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-6-3">6.3. Data Flow Diagrams 2</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-6-4">6.4. Object Inheritance</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-6-5">6.5. Entity Relationship</a></li>
+</ul>
+</li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-7">7. Reference</a>
+<ul>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-7-1">7.1. Graph Attributes</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-7-2">7.2. Vertex Attributes</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-7-3">7.3. Edge Attributes</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-7-4">7.4. Size, Background Colour</a></li>
+</ul>
+</li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-8">8. Appendices</a>
+<ul>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-8-1">8.1. Further Reading</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-8-2">8.2. Using Emacs Org Mode</a>
+<ul>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-8-2-1">8.2.1. Setup</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-8-2-2">8.2.2. Embedding Dot in Emacs</a></li>
+<li><a href="http://www.tonyballantyne.com/graphs.html#sec-8-2-3">8.2.3. The Command Line</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+tup]] : How I use Emacs Org Mode to write novels and short stories 
+</p>
+
+
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> License</h2>
+<div class="outline-text-2" id="text-1">
+<blockquote>
+<p>
+Copyright (C)  2013, 2014  Tony Ballantyne.
+Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+</p>
+
+<p>
+Code in this document is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+</p>
+
+<p>
+This code is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Introduction</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> What is DOT?</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+DOT is a plain text graph description language. It is a simple way of describing graphs that both humans and computer programs can read.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> What is Graphviz?</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Graphviz is open source graph visualization software. Graph visualization is a way of representing structural information as diagrams of abstract graphs and networks.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> Who is this document for?</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+This document was originally written as quick reference for myself.  It was then extended to become a tutorial for Computing students.  It's now offered to anyone who wants to learn DOT by example. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> Related Materials</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+You can find links to similar documents posts at my blog <a href="http://tonyballantyne.com/tech">TonyBallantyne.com/tech</a>
+</p>
+
+<p>
+If you have stumbled across this document by accident whilst looking for my work as an SF and Fantasy writer, the following links may be more useful to you
+</p>
+
+<ul class="org-ul">
+<li><a href="http://www.tonyballantyne.com/">TonyBallantyne.com</a>: Blog about my novels and short stories
+</li>
+<li><a href="http://www.tonyballantyne.com/emacs.html">Emacs Tutorial</a>  : A brief introduction to Emacs for writers
+</li>
+<li><a href="http://www.tonyballantyne.com/EmacsWritingTips.html">My Emacs Writing Setup</a> : How I use Emacs Org Mode to write novels and short stories 
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Setup</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+You will need to have the Graphviz suite of programs installed on your computer to follow this tutorial.  Graphiz can be downloaded for free from the Graphviz site: <a href="http://www.graphviz.org/Home.php">http://www.graphviz.org/Home.php</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Basic Examples</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Simple Graph</h3>
+<div class="outline-text-3" id="text-4-1">
+<pre class="example">graph graphname { 
+                a -- b; 
+                b -- c;
+                b -- d;
+                d -- a;
+        }
+</pre>
+
+<div class="figure">
+<p><img src="./Drawing Graphs using Dot and Graphviz_files/example1.png" alt="example1.png"></p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Same Graph, Different Layout</h3>
+<div class="outline-text-3" id="text-4-2">
+<pre class="example">graph graphname {
+                rankdir=LR;  //Rank Direction Left to Right
+                a -- b; 
+                b -- c;
+                b -- d;
+                d -- a;
+        }
+</pre>
+
+<div class="figure">
+<p><img src="./Drawing Graphs using Dot and Graphviz_files/example1a.png" alt="example1a.png"></p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Simple Digraph (Directional Graph)</h3>
+<div class="outline-text-3" id="text-4-3">
+<pre class="example">digraph graphname{
+                a -&gt; b;
+                b -&gt; c;
+                a -&gt; c;
+        }
+</pre>
+
+<div class="figure">
+<p><img src="./Drawing Graphs using Dot and Graphviz_files/example2.png" alt="example2.png"></p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> Simple Digraph with Labels</h3>
+<div class="outline-text-3" id="text-4-4">
+<pre class="example">digraph graphname{
+
+                T [label="Teacher"]      // node T
+                P [label="Pupil"]  // node P
+
+                T-&gt;P [label="Instructions", fontcolor=darkgreen] // edge T-&gt;P
+}
+</pre>
+
+<div class="figure">
+<p><img src="./Drawing Graphs using Dot and Graphviz_files/example3.png" alt="example3.png"></p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> Same Graph, Different Shape and Colour</h3>
+<div class="outline-text-3" id="text-4-5">
+<pre class="example">digraph graphname {
+                T [label="Teacher" color=Blue, fontcolor=Red, fontsize=24, shape=box]      // node T
+                P [label="Pupil" color=Blue, fontcolor=Red, fontsize=24, shape=box]  // node P
+
+                T-&gt;P [label="Instructions", fontcolor=darkgreen] // edge T-&gt;P
+}
+</pre>
+
+<div class="figure">
+<p><img src="./Drawing Graphs using Dot and Graphviz_files/example3a.png" alt="example3a.png"></p>
+</div>
+
+<p>
+Here are some of the shapes you can use… box, polygon, ellipse, oval, circle, point, egg, triangle, plaintext, diamond, trapezium, parallelogram, house, pentagon, hexagon, septagon, octagon, doublecircle, doubleoctagon, tripleoctagon
+</p>
+
+<p>
+There are lots more available here…
+<a href="http://www.graphviz.org/content/node-shapes">http://www.graphviz.org/content/node-shapes</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-6" class="outline-3">
+<h3 id="sec-4-6"><span class="section-number-3">4.6</span> Summary</h3>
+<div class="outline-text-3" id="text-4-6">
+<pre class="example">digraph summary{
+                start [label="Start with a Node"]
+                next [label="Choose your shape", shape=box]
+                warning [label="Don't go overboard", color=Blue, fontcolor=Red,fontsize=24,style=filled, fillcolor=green,shape=octagon]
+                end [label="Draw your graph!", shape=box, style=filled, fillcolor=yellow]
+
+                start-&gt;next
+                start-&gt;warning 
+                next-&gt;end [label="Getting Better...", fontcolor=darkblue]
+
+}
+</pre>
+
+<div class="figure">
+<p><img src="./Drawing Graphs using Dot and Graphviz_files/summary.png" alt="summary.png"></p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> More Advanced</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> Saving Time</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+It takes time defining each node individually. The following way is quicker
+</p>
+<pre class="example">digraph hierarchy {
+
+                nodesep=1.0 // increases the separation between nodes
+                
+                node [color=Red,fontname=Courier,shape=box] //All nodes will this shape and colour
+                edge [color=Blue, style=dashed] //All the lines look like this
+
+                Headteacher-&gt;{Deputy1 Deputy2 BusinessManager}
+                Deputy1-&gt;{Teacher1 Teacher2}
+                BusinessManager-&gt;ITManager
+                {rank=same;ITManager Teacher1 Teacher2}  // Put them on the same level
+}
+</pre>
+
+<div class="figure">
+<p><img src="./Drawing Graphs using Dot and Graphviz_files/example5.png" alt="example5.png"></p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> Records</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+You can now use HTML to define these sort of blocks.  Find out more at <a href="http://www.graphviz.org/doc/info/shapes.html">http://www.graphviz.org/doc/info/shapes.html</a>
+</p>
+<pre class="example">digraph structs {
+        node[shape=record]
+        struct1 [label="&lt;f0&gt; left|&lt;f1&gt; mid\ dle|&lt;f2&gt; right"];
+        struct2 [label="{&lt;f0&gt; one|&lt;f1&gt; two\n\n\n}" shape=Mrecord];
+        struct3 [label="hello\nworld |{ b |{c|&lt;here&gt; d|e}| f}| g | h"];
+        struct1:f1 -&gt; struct2:f0;
+        struct1:f0 -&gt; struct3:f1;
+}
+</pre>
+
+<div class="figure">
+<p><img src="./Drawing Graphs using Dot and Graphviz_files/struct.png" alt="struct.png"></p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Some Example Graphs</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> Finite State Machine</h3>
+<div class="outline-text-3" id="text-6-1">
+<pre class="example">digraph finite_state_machine {
+        rankdir=LR;
+        size="8,5"
+        node [shape = circle];
+        S0 -&gt; S1 [ label = "Lift Nozzle" ]
+        S1 -&gt; S0 [ label = "Replace Nozzle" ]
+        S1 -&gt; S2 [ label = "Authorize Pump" ]
+        S2 -&gt; S0 [ label = "Replace Nozzle" ]
+        S2 -&gt; S3 [ label = "Pull Trigger" ]
+        S3 -&gt; S2 [ label = "Release Trigger" ]
+}
+</pre>
+
+<div class="figure">
+<p><img src="./Drawing Graphs using Dot and Graphviz_files/petrol.png" alt="petrol.png"></p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> Data Flow Diagrams</h3>
+<div class="outline-text-3" id="text-6-2">
+<pre class="example">digraph dfd{    
+        node[shape=record]
+        store1 [label="&lt;f0&gt; left|&lt;f1&gt; Some data store"];
+        proc1 [label="{&lt;f0&gt; 1.0|&lt;f1&gt; Some process here\n\n\n}" shape=Mrecord];
+        enti1 [label="Customer" shape=box];
+        store1:f1 -&gt; proc1:f0;
+        enti1-&gt; proc1:f0;
+}
+</pre>
+
+<div class="figure">
+<p><img src="./Drawing Graphs using Dot and Graphviz_files/dfd1.png" alt="dfd1.png"></p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6-3" class="outline-3">
+<h3 id="sec-6-3"><span class="section-number-3">6.3</span> Data Flow Diagrams 2</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+The following uses subgraphs to display different levels.  Note that subgraphs must start with the prefix cluster_ or they won't work.  It will only work with dot layout.
+</p>
+<pre class="example">digraph dfd2{
+        node[shape=record]
+        subgraph level0{
+        enti1 [label="Customer" shape=box];
+        enti2 [label="Manager" shape=box];
+        }
+        subgraph cluster_level1{
+                        label ="Level 1";
+                        proc1 [label="{&lt;f0&gt; 1.0|&lt;f1&gt; One process here\n\n\n}" shape=Mrecord];
+                        proc2 [label="{&lt;f0&gt; 2.0|&lt;f1&gt; Other process here\n\n\n}" shape=Mrecord];
+                        store1 [label="&lt;f0&gt;    |&lt;f1&gt; Data store one"];
+                        store2 [label="&lt;f0&gt;   |&lt;f1&gt; Data store two"];
+                        {rank=same; store1, store2}
+
+        }
+        enti1 -&gt; proc1
+        enti2 -&gt; proc2
+        store1 -&gt; proc1
+        store2 -&gt; proc2
+        proc1 -&gt; store2
+        store2 -&gt; proc1 
+}
+</pre>
+
+<div class="figure">
+<p><img src="./Drawing Graphs using Dot and Graphviz_files/dfd2.png" alt="dfd2.png"></p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6-4" class="outline-3">
+<h3 id="sec-6-4"><span class="section-number-3">6.4</span> Object Inheritance</h3>
+<div class="outline-text-3" id="text-6-4">
+<pre class="example">digraph obj{
+        node[shape=record];
+        rankdir="BT";
+        
+        teacher [label = "{&lt;f0&gt; Teacher|&lt;f1&gt; \n  |&lt;f2&gt; \n   }"];
+        course [label = "{&lt;f0&gt; Course|&lt;f1&gt; \n  |&lt;f2&gt; \n   }"];
+        student [label = "{&lt;f0&gt; Student|&lt;f1&gt; \n  |&lt;f2&gt; \n   }"];
+        lesson [label = "{&lt;f0&gt; Lesson |&lt;f1&gt; \n  |&lt;f2&gt; \n   }"];
+        tutorial [label = "{&lt;f0&gt; Tutorial|&lt;f1&gt; \n  |&lt;f2&gt; \n   }"];
+        assessment[label = "{&lt;f0&gt; Assessment|&lt;f1&gt; \n  |&lt;f2&gt; \n   }"];
+        coursework [label = "{&lt;f0&gt; Coursework|&lt;f1&gt; \n  |&lt;f2&gt; \n   }"];
+        exam [label = "{&lt;f0&gt; Exam|&lt;f1&gt; \n  |&lt;f2&gt; \n   }"];
+
+        {rank=same; teacher course student}
+
+        teacher-&gt;course [dir="forward",arrowhead="none",arrowtail="normal",headlabel="1",taillabel="1.."];
+        student-&gt;course [dir="forward",arrowhead="none",arrowtail="normal",headlabel="1",taillabel="1.."];
+        lesson-&gt;course [dir="forward",arrowhead="diamond",arrowtail="normal"];
+        tutorial-&gt;course [dir="forward",arrowhead="diamond",arrowtail="normal"];
+        assessment-&gt;course [dir="forward",arrowhead="diamond",arrowtail="normal"];
+        coursework-&gt;assessment;
+        exam-&gt;assessment;
+
+}
+</pre>
+
+<div class="figure">
+<p><img src="./Drawing Graphs using Dot and Graphviz_files/obj.png" alt="obj.png"></p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6-5" class="outline-3">
+<h3 id="sec-6-5"><span class="section-number-3">6.5</span> Entity Relationship</h3>
+<div class="outline-text-3" id="text-6-5">
+<pre class="example">digraph ER{
+        node[shape=box];
+        Book;
+        Customer;
+        Loan;
+        {rank=same;Book,Customer,Loan}
+        Book-&gt;Loan[dir="forward",arrowhead="crow",arrowtail="normal"];
+        Customer-&gt;Loan[dir="forward",arrowhead="crow",arrowtail="normal"];
+}
+</pre>
+
+
+<div class="figure">
+<p><img src="./Drawing Graphs using Dot and Graphviz_files/ER.png" alt="ER.png"></p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Reference</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Here are the most useful attributes you will need when drawing graphs.  The full list can be found here: <a href="http://graphviz.org/doc/info/attrs.html">http://graphviz.org/doc/info/attrs.html</a> 
+</p>
+</div>
+<div id="outline-container-sec-7-1" class="outline-3">
+<h3 id="sec-7-1"><span class="section-number-3">7.1</span> Graph Attributes</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li>label="My Graph"; Label a graph itself
+</li>
+<li>rankdir=LR; Lay the graph out from Left to Right, instead of Top to Bottom
+</li>
+<li>{rank=same; a, b, c } Group nodes together at the same level of a graph
+</li>
+<li>splines="line"; Force edges to be straight, no curves or angles
+</li>
+<li>K=0.6; Used to influence the 'spring' used in the layout, Can be used to push nodes further apart, which is especially useful for twopi and sfdp layouts
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-7-2" class="outline-3">
+<h3 id="sec-7-2"><span class="section-number-3">7.2</span> Vertex Attributes</h3>
+<div class="outline-text-3" id="text-7-2">
+<ul class="org-ul">
+<li>[label="Some Label"] Labels the Vertex
+</li>
+<li>[color="red"] Colors the Vertex
+</li>
+<li>[fillcolor="blue"] Fills the Vertex with the specified colour
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-7-3" class="outline-3">
+<h3 id="sec-7-3"><span class="section-number-3">7.3</span> Edge Attributes</h3>
+<div class="outline-text-3" id="text-7-3">
+<ul class="org-ul">
+<li>[label="Some Label"] Labels the Edge (Useful for Weights)
+</li>
+<li>[color="red"] Colors the Vertex (Useful for Paths)
+</li>
+<li>[penwidth=2.0] Adjusts the thickness of the edge line, Very useful for Paths
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-7-4" class="outline-3">
+<h3 id="sec-7-4"><span class="section-number-3">7.4</span> Size, Background Colour</h3>
+<div class="outline-text-3" id="text-7-4">
+<p>
+fixedsize=true;
+size="1,1"; resolution=72; bgcolor="#C6CFD532";
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Appendices</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-sec-8-1" class="outline-3">
+<h3 id="sec-8-1"><span class="section-number-3">8.1</span> Further Reading</h3>
+<div class="outline-text-3" id="text-8-1">
+<ul class="org-ul">
+<li><a href="http://linuxdevcenter.com/pub/a/linux/2004/05/06/graphviz_dot.html">http://linuxdevcenter.com/pub/a/linux/2004/05/06/graphviz_dot.html</a>
+</li>
+<li><a href="http://graphs.grevian.org/index.html">http://graphs.grevian.org/index.html</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-8-2" class="outline-3">
+<h3 id="sec-8-2"><span class="section-number-3">8.2</span> Using Emacs Org Mode</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+Emacs org mode is an ideal environment for writing, executing and exporting Dot graphics
+</p>
+</div>
+<div id="outline-container-sec-8-2-1" class="outline-4">
+<h4 id="sec-8-2-1"><span class="section-number-4">8.2.1</span> Setup</h4>
+<div class="outline-text-4" id="text-8-2-1">
+<p>
+Download and install graphviz and add the path to the exec-path variable 
+</p>
+
+<p>
+You will need to update your .emacs file to load dot as a babel language.  The following is a useful babel setup for dot and other languages
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(org-babel-do-load-languages
+ (quote org-babel-load-languages)
+ (quote ((emacs-lisp . t)
+         (java . t)
+         (dot . t)
+         (ditaa . t)
+         (R . t)
+         (python . t)
+         (ruby . t)
+         (gnuplot . t)
+         (clojure . t)
+         (sh . t)
+         (ledger . t)
+         (org . t)
+         (plantuml . t)
+         (latex . t))))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8-2-2" class="outline-4">
+<h4 id="sec-8-2-2"><span class="section-number-4">8.2.2</span> Embedding Dot in Emacs</h4>
+<div class="outline-text-4" id="text-8-2-2">
+<p>
+Org mode can interpret different languages by using the Library Of Babel.  To do so, enclose the code in begin_ src and end_ src tags as below.  You'll need to add command line arguments as shown.  
+</p>
+
+<p>
+A shortcut to make a begin_ src block is to type &lt;s [TAB]
+</p>
+<pre class="example">#+begin_src dot :file ./img/example1.png :cmdline -Kdot -Tpng
+graph graphname { 
+                a -- b; 
+                b -- c;
+                b -- d;
+                d -- a;
+        } 
+#+end_src
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-8-2-3" class="outline-4">
+<h4 id="sec-8-2-3"><span class="section-number-4">8.2.3</span> The Command Line</h4>
+<div class="outline-text-4" id="text-8-2-3">
+<p>
+The section :cmdline -Kdot -Tpng in the #+begin_ src dot :file ./img/example1.png :cmdline -Kdot -Tpng section are command line arguments.  They tell dot how to render and display.
+</p>
+<ul class="org-ul">
+<li>-Kdot use dot layout.  The other layouts you can try are Kneato, Kcirco, Ktwopi, Kfdp and Ksfdp for different layouts
+</li>
+<li>-Tpng render as png
+</li>
+</ul>
+<p>
+The full command line arguments can be found here:  <a href="http://graphviz.org/content/command-line-invocation">http://graphviz.org/content/command-line-invocation</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2013-10-21 Mon&gt;</span></span></p>
+<p class="author">Author: Tony Ballantyne</p>
+<p class="date">Created: 2014-04-12 Sat 10:13</p>
+<p class="creator">Emacs 23.3.1 (Org mode 8.0.2)</p>
+<p class="xhtml-validation"><a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a></p>
+</div>
+
+
+</body></html>

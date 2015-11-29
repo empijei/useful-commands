@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0075)http://www.ffnn.nl/pages/articles/media/uml-diagrams-using-graphviz-dot.php -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<title>Forever For Now - UML Diagrams Using Graphviz Dot</title>
+		
+		<meta name="description" content="Automatically creating UML diagrams using the Graphviz Dot tool. Modelling classes, attributes, methods, packages and associations.">
+		<meta name="keywords" content="Frank, Schoep, Linux, Solaris, Programming, Java, PHP, Ruby, QT, KDE, Eclipse, PostgreSQL, MySQL. Automatically creating UML diagrams using the Graphviz Dot tool. Modelling classes, attributes, methods, packages and associations.">
+		
+		<link href="./Forever For Now - UML Diagrams Using Graphviz Dot_files/screen.css" rel="stylesheet" type="text/css" media="screen">
+		<link href="./Forever For Now - UML Diagrams Using Graphviz Dot_files/print.css" rel="stylesheet" type="text/css" media="print">
+		
+		<script type="text/javascript" src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/functions.js"> </script><style type="text/css"></style>
+	</head>
+	
+	<body>
+  		<div class="centered">
+			<div id="header">
+				<h1><a href="http://www.ffnn.nl/" name="header" title="Forever For Now Home" accesskey="1">Forever For Now<span></span></a></h1>
+				<div id="skipnav">
+					<p><a href="http://www.ffnn.nl/pages/articles/media/uml-diagrams-using-graphviz-dot.php#contentstart" title="Skip navigation" accesskey="2">Skip navigation</a></p>
+				</div>
+			</div>
+			
+			<div id="topmenu">
+				<ul>
+				<li><a href="http://www.ffnn.nl/pages/articles.php" title="Articles" accesskey="a"><img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/menu-articles.png" alt="Articles" border="0"></a></li><li><img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/menu-spacer.png" alt=" &#9679; "></li><li><a href="http://www.ffnn.nl/pages/projects.php" title="Projects" accesskey="b"><img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/menu-projects.png" alt="Projects" border="0"></a></li><li><img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/menu-spacer.png" alt=" &#9679; "></li><li><a href="http://www.ffnn.nl/pages/reviews.php" title="Reviews" accesskey="c"><img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/menu-reviews.png" alt="Reviews" border="0"></a></li><li><img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/menu-spacer.png" alt=" &#9679; "></li><li><a href="http://www.ffnn.nl/pages/services.php" title="Services" accesskey="d"><img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/menu-services.png" alt="Services" border="0"></a></li><li><img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/menu-spacer.png" alt=" &#9679; "></li><li><a href="http://www.ffnn.nl/pages/sitemap.php" title="Sitemap" accesskey="e"><img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/menu-sitemap.png" alt="Sitemap" border="0"></a></li><li><img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/menu-spacer.png" alt=" &#9679; "></li><li><a href="http://www.ffnn.nl/search/index.php" title="Search" accesskey="6"><img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/menu-search.png" border="0" alt="Search"></a></li>				</ul>
+				
+ 									<ul id="topmenu-toggle">
+						<li><a href="http://www.ffnn.nl/pages/articles/media/uml-diagrams-using-graphviz-dot.php#header" onclick="javascript:toggleMenu();return false;" title="Show or hide the full menu"><img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/menu-toggle.png" alt="&#9660;   Full Menu" border="0"></a></li>
+					</ul>
+							</div>
+
+			<div id="page">
+ 									<div id="menu" style="display: none;">
+						<h2>Menu</h2>
+						<ul><li><a href="http://www.ffnn.nl/" target="_top" title="Home">Home</a></li><li><a href="http://www.ffnn.nl/pages/articles.php" target="_top" title="Articles">Articles</a></li><ul><li><a href="http://www.ffnn.nl/pages/articles/apple-mac-os-x.php" target="_top" title="Apple Mac OS X">Apple Mac OS X</a></li><li><a href="http://www.ffnn.nl/pages/articles/ffn.php" target="_top" title="FFN">FFN</a></li><li><a href="http://www.ffnn.nl/pages/articles/java.php" target="_top" title="Java">Java</a></li><li><a href="http://www.ffnn.nl/pages/articles/kde.php" target="_top" title="KDE">KDE</a></li><li><a href="http://www.ffnn.nl/pages/articles/linux.php" target="_top" title="Linux">Linux</a></li><li><a href="http://www.ffnn.nl/pages/articles/media.php" target="_top" title="Media">Media</a></li><ul><li><a href="http://www.ffnn.nl/pages/articles/media/blender-tips-and-tricks.php" target="_top" title="Blender Tips and Tricks">Blender Tips and Tricks</a></li><li><a href="http://www.ffnn.nl/pages/articles/media/content-retrieval-desktop-search.php" target="_top" title="Content Retrieval: Desktop Search">Content Retrieval: Desktop Search</a></li><li><a href="http://www.ffnn.nl/pages/articles/media/inkscape-text-tricks.php" target="_top" title="Inkscape Text Tricks">Inkscape Text Tricks</a></li><li><a href="http://www.ffnn.nl/pages/articles/media/opendocument-format-overview.php" target="_top" title="OpenDocument Format Overview">OpenDocument Format Overview</a></li><li><a href="http://www.ffnn.nl/pages/articles/media/png-optimization.php" target="_top" title="PNG Optimization">PNG Optimization</a></li><li class="active"><a href="./Forever For Now - UML Diagrams Using Graphviz Dot_files/Forever For Now - UML Diagrams Using Graphviz Dot.html" target="_top" title="UML Diagrams Using Graphviz Dot">UML Diagrams Using Graphviz Dot</a></li><ul><li><a href="http://www.graphviz.org/" target="_top" title="Graphviz website">Graphviz website</a></li><li><a href="http://www.spinellis.gr/sw/umlgraph/" target="_top" title="UMLGraph website">UMLGraph website</a></li></ul></ul><li><a href="http://www.ffnn.nl/pages/articles/mono-and-c.php" target="_top" title="Mono and C#">Mono and C#</a></li><li><a href="http://www.ffnn.nl/pages/articles/netware.php" target="_top" title="Netware">Netware</a></li><li><a href="http://www.ffnn.nl/pages/articles/solaris.php" target="_top" title="Solaris">Solaris</a></li><li><a href="http://www.ffnn.nl/pages/articles/windows.php" target="_top" title="Windows">Windows</a></li></ul><li><a href="http://www.ffnn.nl/pages/projects.php" target="_top" title="Projects">Projects</a></li><li><a href="http://www.ffnn.nl/pages/reviews.php" target="_top" title="Reviews">Reviews</a></li><li><a href="http://www.ffnn.nl/pages/services.php" target="_top" title="Services">Services</a></li><li><a href="http://www.ffnn.nl/pages/sitemap.php" target="_top" title="Sitemap">Sitemap</a></li></ul>
+													<h2>Search</h2>
+							<form name="search" action="http://www.ffnn.nl/search/index.php" method="post">
+								<p>
+									<label for="query" accesskey="4">Search for:</label><br>
+									<input type="text" name="string" id="query">
+								</p><p>
+									<input type="submit" value="Search">
+								</p>
+							</form>
+											</div>
+				
+				<div class="breadcrumbs">
+					<ul><li>&#9658;  <a href="http://www.ffnn.nl/pages/articles.php" title="Articles">Articles</a></li><li>&#9658;  <a href="http://www.ffnn.nl/pages/articles/media.php" title="Media">Media</a></li><li>&#9658;  <a href="./Forever For Now - UML Diagrams Using Graphviz Dot_files/Forever For Now - UML Diagrams Using Graphviz Dot.html" title="UML Diagrams Using Graphviz Dot">UML Diagrams Using Graphviz Dot</a></li></ul>				</div>
+
+				<div id="content">
+					<a name="contentstart" title="Start of the actual page content"></a>
+					
+<h1>UML Diagrams Using Graphviz Dot</h1>
+<h2>Introduction</h2>
+<h3>Background</h3>
+<p>
+This article is about using the <em>dot</em> tool from the <a title="Graphviz website" href="http://www.graphviz.org/">Graphviz package</a> to automatically generate UML diagrams on the fly. We'll take a look at modelling packages, classes, attributes, methods and associations which already covers a fair subset of the class diagrams in UML.
+</p><p>
+Of course, the information given in this article is only of limited use in situations where you are manually entering the graph description, but the information is highly useful when you're writing a tool which analyzes program structure. So read on if you're writing a piece of software like <a href="http://www.spinellis.gr/sw/umlgraph/" title="UMLGraph website">UMLGraph</a>.
+</p>
+
+<h2>Getting Started</h2>
+<h3>What you need</h3>
+<p>
+First of all, you need to have the Graphviz package installed on your computer, head over to the <a href="http://www.graphviz.org/" title="Graphviz website">Graphviz website</a> to download a version for your operating system. Windows users can find binary installers there, Linux users should simply use their package manager since graphviz is a common piece of software. For other Unices, you should download and compile the source code.
+</p><p>
+There aren't many other prerequisites, but it helps if you've got a good example scenario to start with. In this article I'll be using a somewhat contrived and artificial example, but I hope it gets the point through. You might also want to make sure you have the <em>Bitstream Vera</em> family of fonts installed as I will be using these throughout the article.
+</p>
+
+<h3>The so-called "problem"</h3>
+<p>
+The example will be based on a small portion of an animal inspired domain. We'll model a simple Animal <em>superclass</em> which will have two <em>subclasses</em>: Dog and Cat. Animal will have some <em>attributes</em> and <em>methods</em> and both Dog and Cat will add another method to the mix.
+</p><p>
+We'll model an <em>association</em> between Dog and Cat which resembles an arch-enemy relation. This relation will be of an N:M multiplicity. Besides this, the Animal class will be in the default <em>package</em>, while both Dog and Cat are placed in a package called "animal.impl".
+</p><p>
+So, fire up a text editor and let's type away.
+</p>
+
+<h2>Graphing Basics</h2>
+<h3>General properties</h3>
+<p>
+Let's start off by writing the boilerplate for the <em>dot</em> tool:
+</p>
+<pre>digraph G {<br>        fontname = "Bitstream Vera Sans"<br>        fontsize = 8<br><br>        node [<br>                fontname = "Bitstream Vera Sans"<br>                fontsize = 8<br>                shape = "record"<br>        ]<br><br>        edge [<br>                fontname = "Bitstream Vera Sans"<br>                fontsize = 8<br>        ]<br></pre>
+<p>
+Don't worry if you don't get this immediately. The first line tells dot we want to draw a <em>directed graph</em>, or <em>digraph</em> for short. A directed graph is a graph in which all edges point from one node to another node, each edge has a start and end node.
+</p><p>
+The second and third lines set the font properties for the graph, as you can see the next few lines set the font properties for the default nodes and edges as well. There's one line of interest which isn't covered yet, it's the one defining the <em>shape</em> property for nodes.
+</p><p>
+We set the shape to <em>record</em> because the record shape allows a node to be separated using bars. As we'll see later on, this is the perfect way to model an UML class diagram.
+</p>
+
+<h3>Modelling the Animal class</h3>
+<p>
+Let's model the Animal class, which will have a public "name" and "age" property and a public method called "die()". As I stated earlier, this example is somewhat artificial, but it works. I modelled the Animal class like this:
+</p>
+<pre>        Animal [<br>                label = "{Animal|+ name : string\l+ age : int\l|+ die() : void\l}"<br>        ]<br></pre>
+<p>
+If you're not familiar with the dot syntax, it will look awkward to you. But let's look at what this class looks like after using dot:
+</p>
+<div class="figure fullwidth">
+<p>
+<img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/animalclass.png" alt="Animal class UML model">
+</p><p>
+The basic Animal class example generated by dot.
+</p>
+</div>
+<p>
+Seeing this should give you an idea about how the dot syntax works.
+</p>
+
+<h3>Why the Animal class looks like this</h3>
+<p>
+The label property we've set for the Animal node does a few things:
+</p>
+<ul>
+<li>The opening and closing curly braces "{" and "}" indicate that we want to create a "record" shape with multiple dividers.</li>
+<li>The pipe characters "|" indicate the dividers, we use one to separate the class name from the attributes and another one to separate the methods from the attributes.</li>
+<li>Putting the "\l" characters after a line of text indicates the line should be aligned to the left side of the shape and that a new line of text should start.</li>
+</ul>
+
+<h3>Trying it for yourself</h3>
+<p>
+To generate the Animal example yourself, copy and paste the following code in a file called "class.dot":
+</p>
+<pre>digraph G {<br>        fontname = "Bitstream Vera Sans"<br>        fontsize = 8<br><br>        node [<br>                fontname = "Bitstream Vera Sans"<br>                fontsize = 8<br>                shape = "record"<br>        ]<br><br>        edge [<br>                fontname = "Bitstream Vera Sans"<br>                fontsize = 8<br>        ]<br><br>        Animal [<br>                label = "{Animal|+ name : string\l+ age : int\l|+ die() : void\l}"<br>        ]<br>}<br></pre>
+<p>
+Now, open a terminal in the directory you've created this file and call the dot tool like this:
+</p><p>
+<code>
+dot -T png -o class.png class.dot
+</code>
+</p><p>
+This will generate a PNG file with the Animal class model in it. For the rest of the article, I will assume that you can add closing braces yourself, so I won't give you the full code for each example anymore.
+</p>
+
+<h2>Futher Modelling</h2>
+<h3>Creating the Dog and Cat classes</h3>
+<p>
+The Dog and Cat classes are actually quite simple once you've seen the Animal class. Add the following lines after the Animal class and before the closing curly brace:
+</p>
+<pre>        Dog [<br>                label = "{Dog||+ bark() : void\l}"<br>        ]<br><br>        Cat [<br>                label = "{Cat||+ meow() : void\l}"<br>        ]<br></pre>
+<p>
+If you run dot on the resulting file, you'll see the three classes without any associations or relations between them:
+</p>
+<div class="figure fullwidth">
+<p>
+<img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/threeclasses.png" alt="The basic class diagram with Animal, Dog and Cat">
+</p><p>
+The three classes: Animal, Dog and Cat.
+</p>
+</div>
+
+<h3>Modelling the subclass relation</h3>
+<p>
+Dog and Cat should be subclasses of Animal. Let's add two lines originating from Dog and Cat and ending at the Animal class with an empty arrowhead, UML's way of expresing a subclass relation. Enter the following lines after the Cat declaration, but before the ending curly brace:
+</p>
+<pre>        edge [<br>                arrowhead = "empty"<br>        ]<br><br>        Dog -&gt; Animal<br>        Cat -&gt; Animal<br></pre>
+<p>
+You can see the arrowhead being set to "empty" in the second line. The lines with "-&gt;" in them describe the directed relations. Dog points to Animal, Cat points to Animal: both subclass relationships are defined in those lines. Using dot, the UML diagram now looks like this:
+</p>
+<div class="figure fullwidth">
+<p>
+<img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/subclassrelations.png" alt="Adding the subclass relations to the UML diagram">
+</p><p>
+The three classes and the subclass relations are now modelled.
+</p>
+</div>
+
+<h3>Modelling the "arch-enemy" association</h3>
+<p>
+Let's add the N:M relationship between Dog and Cat. I used the following lines in my dot file, enter these after the subclass relation lines but before the closing curly brace:
+</p>
+<pre>        edge [<br>                arrowhead = "none"<br><br>                headlabel = "0..*"<br>                taillabel = "0..*"<br>        ]<br><br>        Dog -&gt; Cat<br></pre>
+<p>
+The second line disables the arrowhead, necessary because association do not exhibit a graphival direction. The "headlabel" and "taillabel" values describe the texts shown at the beginning and end of the edge. In the case of a N:M relation, both of these labels should read "0..*". The last line adds an edge between the Dog and Cat class. After running dot, the result is this:
+</p>
+<div class="figure fullwidth">
+<p>
+<img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/association.png" alt="Adding the association between classes">
+</p><p>
+The arch-enemy association between Dog and Cat is now modelled.
+</p>
+</div>
+
+<h3>Modelling the package</h3>
+<p>
+Adding the package to the mix is a bit more complicated, you'll need to add two lines before the declaration of the Dog class:
+</p>
+<pre>        subgraph clusterAnimalImpl {<br>                label = "Package animal.impl"<br></pre>
+<p>
+Add a closing brace "}" just below the Cat class declaration.
+</p><p>
+The first line tells dot that the coming nodes are to be clustered together in a box. The second line describes the label of the box. The name of the <em>subgraph</em> is very important: only subgraphs having a name starting with "cluster" are drawn together inside a box.
+</p>
+
+<h2>Conclusion</h2>
+<h3>The end result</h3>
+<p>
+The resulting dot file should look like this:
+</p>
+<pre>digraph G {<br>        fontname = "Bitstream Vera Sans"<br>        fontsize = 8<br><br>        node [<br>                fontname = "Bitstream Vera Sans"<br>                fontsize = 8<br>                shape = "record"<br>        ]<br><br>        edge [<br>                fontname = "Bitstream Vera Sans"<br>                fontsize = 8<br>        ]<br><br>        Animal [<br>                label = "{Animal|+ name : string\l+ age : int\l|+ die() : void\l}"<br>        ]<br><br>        subgraph clusterAnimalImpl {<br>                label = "Package animal.impl"<br><br>                Dog [<br>                        label = "{Dog||+ bark() : void\l}"<br>                ]<br><br>                Cat [<br>                        label = "{Cat||+ meow() : void\l}"<br>                ]<br>        }<br><br>        edge [<br>                arrowhead = "empty"<br>        ]<br><br>        Dog -&gt; Animal<br>        Cat -&gt; Animal<br><br>        edge [<br>                arrowhead = "none"<br><br>                headlabel = "0..*"<br>                taillabel = "0..*"<br>        ]<br><br>        Dog -&gt; Cat<br>}<br></pre>
+<p>
+Running this file through dot gives the following UML diagram:
+</p>
+<div class="figure fullwidth">
+<p>
+<img src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/endresult.png" alt="The resulting UML diagram">
+</p><p>
+The end result of our dot modelling work.
+</p>
+</div>
+
+<h3>Further ideas</h3>
+<p>
+I hope this article provided a good starting point for drawing UML diagrams automatically using dot. See the <a href="http://www.spinellis.gr/sw/umlgraph/" title="UMLGraph website">UMLGraph website</a> for more ideas on implementing extensions to the basic ideas. I hope you found this information useful.
+</p>
+
+<h3>About this article</h3>
+<p>
+This article was added to the site on the 1st of April 2006.
+</p>
+					<p><a href="http://www.ffnn.nl/pages/articles/media/uml-diagrams-using-graphviz-dot.php#header" accesskey="3">Back to top</a></p>
+				</div>
+
+				<div class="breadcrumbs">
+					<ul><li>&#9658;  <a href="http://www.ffnn.nl/pages/articles.php" title="Articles">Articles</a></li><li>&#9658;  <a href="http://www.ffnn.nl/pages/articles/media.php" title="Media">Media</a></li><li>&#9658;  <a href="./Forever For Now - UML Diagrams Using Graphviz Dot_files/Forever For Now - UML Diagrams Using Graphviz Dot.html" title="UML Diagrams Using Graphviz Dot">UML Diagrams Using Graphviz Dot</a></li></ul>				</div>
+			</div>
+
+			<div id="footer">
+				<p>
+Design and content © 1998 - 2013, <a href="mailto:frank@ffnn.nl" title="Contact me via e-mail" accesskey="5">Frank Schoep</a>.
+</p><p>
+Powered by <a href="http://www.ffnn.nl/pages/projects/fools-gold.php" title="Fools Gold project page">Fools Gold</a> based on <a href="http://www.websitebaker.org/" title="Website Baker homepage">Website Baker</a>.
+</p><p>
+Read the <a href="http://www.ffnn.nl/pages/articles/ffn/accessibility-statement.php" title="Usability and accessibility statement" accesskey="0">usability and accessibility statement</a>.
+</p>
+
+<script src="./Forever For Now - UML Diagrams Using Graphviz Dot_files/urchin.js" type="text/javascript"> </script>
+<script type="text/javascript">
+ _uacct = "UA-242498-1";
+ urchinTracker();
+</script>			</div>
+		</div>
+
+		<script type="text/javascript">
+			hideMenu();
+		</script>
+	
+
+</body></html>
