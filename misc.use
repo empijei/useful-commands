@@ -1,1 +1,3 @@
-utility do draw graphs: dot (install graphviz)
+draw plots and data graphs: gnuplot
+play all files in a directory: find | xargs -i mplayer {}
+

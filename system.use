@@ -1,4 +1,5 @@
 automatically configure secondary screen: xrandr --output DP1 --auto --right-of eDP1
+coredumps: coredumpctl list; coredumpctl info PID; coredumpctl gdb PID;
 get power consumption: cat /sys/class/power_supply/BAT0/power_now
 terminal task manager: htop
 sound options : alsamixer

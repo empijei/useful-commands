@@ -1,4 +1,5 @@
 simple translation-substituition tool: tr
+select a field in a output: command | cut -d'separator' -f'fieldnumber'
 ascii art text and banner: figlet
 add line number: cat -n
 render a tex | latex document: pdflatex doc.tex
