@@ -1,4 +1,5 @@
 linux default firewall: iptables
+see all network traffic of applications: nethogs
 socat an executable: socat tcp-l:port,reuseaddr,fork exec:./file
 get gateway: route -n
 list all links in a webpage: lynx --dump http://downloadme.com | grep http
@@ -51,4 +52,8 @@ network nameservers (dns):
     	nameserver 8.8.8.8
     	nameserver 202.54.2.5
 
-
+create a temporary configuration for network:
+	ip link set enp0s25 up
+	ip addr add 10.3.5.200/26 broadcast 10.3.5.255 dev enp0s25
+	ip route add default via 10.3.5.129(gateway)
+	

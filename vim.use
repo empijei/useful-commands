@@ -1,4 +1,11 @@
 :set paste per incollare senza tabulazioni superflue
+invert selection: :v/\%V/d
+sort lines: :% sort u
+print colored output and syntax highlighted code to terminal: vimcat
+jump between matching parens: %
+retrace your movements in file (backward): <C-O>
+retrace your movements in file (forward): <C-I>
+insert result of calc : CTRL-R=5*5  will put 25 in the buffer
 go back to last buffer (including folder view): ctrl+o
 go back to last cursor postion: ``
 folding: z
@@ -17,6 +24,8 @@ fix indent on a known language: =i{ reindents "inner block" (inside the braces).
 						With the cursor on { or }:
 								=% indents the block (including matching brace).
 								>% or <% indents or unindents the block.
+recording: q
+go back to file explorer: :Ex
 
 Place the cursor on any variable in your program.
 

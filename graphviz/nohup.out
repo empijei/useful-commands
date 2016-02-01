@@ -1,5 +1,0 @@
-
-(evince:21513): Gtk-WARNING **: gtk_widget_size_allocate(): attempt to allocate widget with width -74 and height 20
-/usr/bin/xdg-open: line 664: 21513 Killed                  "$command_exec" "$@"
-Created new window in existing browser session.
-Created new window in existing browser session.
