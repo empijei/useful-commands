@@ -1,4 +1,6 @@
 linux default firewall: iptables
+see all listening services: sudo netstat -anp  | grep -i listen
+curl and see raw data: curl -v URL
 see all network traffic of applications: nethogs
 socat an executable: socat tcp-l:port,reuseaddr,fork exec:./file
 get gateway: route -n

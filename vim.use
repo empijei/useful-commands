@@ -1,4 +1,9 @@
 :set paste per incollare senza tabulazioni superflue
+filname: :echo @%
+open "man" of word under cursor: K
+set syntax: :set syntax=html | :set filetype=html
+count words: :%s/pattern//gn
+spellcheck: :setlocal spell spelllang=it_it (per muoversi sugli errori [s ]s per suggesions z= per aggiungere zg)
 invert selection: :v/\%V/d
 sort lines: :% sort u
 print colored output and syntax highlighted code to terminal: vimcat
@@ -41,6 +46,7 @@ vimdiff:
 [c :        - previous difference
 do          - diff obtain
 dp          - diff put
+:diffupdate - reload diffs
 
 To comment out blocks in vim:
 hit ctrl+v (visual block mode)
