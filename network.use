@@ -1,6 +1,8 @@
 linux default firewall: iptables
 determine connection speed and othe info on ethernet: ethool enp0s25
 download a website: wget -e robots=off -A '*' -r -np -E 'https://website.org'
+see all listening services: sudo netstat -anp  | grep -i listen
+curl and see raw data: curl -v URL
 see all network traffic of applications: nethogs
 socat an executable: socat tcp-l:port,reuseaddr,fork exec:./file
 get gateway: route -n

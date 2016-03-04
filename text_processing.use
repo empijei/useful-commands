@@ -1,4 +1,6 @@
 simple translation-substituition tool: tr
+check for a match with before-after match: grep -oP '<before pattern>\K<matching group>(?=<after pattern>)' 
+merge file by column: pr -mts, file1 file2 (the comma is the column separator)
 case insensitive grep: grep -i
 select a field in a output: command | cut -d'separator' -f'fieldnumber'
 ascii art text and banner: figlet
