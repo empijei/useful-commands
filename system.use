@@ -1,4 +1,6 @@
 automatically configure secondary screen: xrandr --output DP1 --auto --right-of eDP1
+xargs with spaces, line by line: xargs -d"\n" -n 1 command 
+get unix/posix/epoch time: date +%s
 update only aur packages: yaourt -Sbu --aur
 force update and rebuild of aur packages: yaourt -S $(pacman -Qqm)
 detect slow services, startup time improve: systemd-analyze blame
