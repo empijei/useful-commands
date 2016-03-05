@@ -1,5 +1,15 @@
 automatically configure secondary screen: xrandr --output DP1 --auto --right-of eDP1
-terminal task manager: htop
+xargs with spaces, line by line: xargs -d"\n" -n 1 command 
+get unix/posix/epoch time: date +%s
+set java: archlinux-java set java-8-jdk
+update only aur packages: yaourt -Sbu --aur
+force update and rebuild of aur packages: yaourt -S $(pacman -Qqm)
+detect slow services, startup time improve: systemd-analyze blame
+recort all input and output of terminal: script logfile.log
+coredumps: coredumpctl list; coredumpctl info PID; coredumpctl gdb PID;
+get power consumption: cat /sys/class/power_supply/BAT0/power_now
+terminal task manager: htop or top
+top sorting: M by memory P by CPU
 sound options : alsamixer
 encrypted folders in user-space: encfs
 disk usage analyzer: ncdu

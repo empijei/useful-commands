@@ -1,0 +1,3 @@
+draw plots and data graphs: gnuplot
+play all files in a directory: find | xargs -i mplayer {}
+

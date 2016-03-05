@@ -1,4 +1,6 @@
 sort files by date: ls -t (-tr for reverse order)
+list file one by one with escaped spaces: ls -1 | sed "s/.*/'&'/"
+run a command for every file: find . -type f -exec <comando> {} \;
 reanme files ina a batch:rename
 hex editor: xxd
 size of a file: stat -c%s

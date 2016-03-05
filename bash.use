@@ -1,7 +1,11 @@
 go back to previous folder: cd -
+use the unaliased progra: \command
+show the content of a function or alias: which command
+get where is the executable for a command: whereis command
 redirect to tcp/udp sockets: /dev/tcp/ and /dev/udp
 clear screen: ctrl+l or clear
 test time requesd for a command to execute: time
+access last argument passed to previous command: !$
 set shell buffer size to 0: stdbuf -i0 -o0 -e0 command
 see the background jobs' ip: jobs -ps
 see the aliases for a command: type command

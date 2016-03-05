@@ -1,0 +1,2 @@
+utility do draw graphs: dot (install graphviz)
+edit graphviz and see results live: dot -Txlib

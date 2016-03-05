@@ -1,0 +1,56 @@
+//compile with  dot -Tpng file -o file.png
+digraph Components{
+	rankdir=LR
+//	forcelabels=true
+//	concentrate=true
+	node[shape=rect]
+	subgraph clusterDBMS{
+		label="DBMS"
+		node[shape=rect]
+		Accounts
+		ActiveOperations[label="Active Reservations\nand\nRequests"]
+	}
+	subgraph clusterWebserver{
+		label="WebServer"
+		node[shape=rect]
+		APIBackend,WebpageCreator,DBConnector,NotificationModule, HttpHandler
+		ResponseCreator[shape=ellipse label="Response\nCreator"]
+		ResponseCreator -> HttpHandler[arrowhead=curve label="needed by" constraint=false]	
+		//{APIBackend WebpageCreator}-> ResponseCreator [label="exposes" arrowhead=dot constraint=false]
+		APIBackend:s -> ResponseCreator:e [label="exposes" arrowhead=dot constraint=false]
+		WebpageCreator:se -> ResponseCreator:e [label="exposes" arrowhead=dot constraint=false]
+
+		DbInteractions[shape=ellipse label="DB Interactions"]
+		DBConnector->DbInteractions[label="exposes" arrowhead=dot]
+		DbInteractions -> {APIBackend WebpageCreator}[arrowhead=curve label="needed by"]	
+		
+		notif[shape=ellipse label="Notifications"]
+		NotificationModule->notif[label="exposes" arrowhead=dot]
+		notif -> {APIBackend WebpageCreator}[arrowhead=curve label="needed by"]	
+		
+		
+
+		{rank=same ResponseCreator notif}
+		{rank=same DBConnector HttpHandler}
+	}
+	subgraph clusterClientApp{
+		label="ClientSideApplication"
+		node[shape=rect]
+		ClientUI,DriverUI,AdminUI
+	}
+	AccountsManaging[shape=ellipse label="Accounts managing\n and access"]
+	Accounts->AccountsManaging[label="exposes" arrowhead=dot]
+	AccountsManaging->DBConnector[label="needed by" arrowhead=curve]
+	
+	Operations[shape=ellipse label="Operations Creations\n and Querying"]
+	ActiveOperations -> Operations[label="exposes" arrowhead=dot]
+	Operations->DBConnector[label="needed by" arrowhead=curve]
+	
+	notifReceiver[shape=ellipse label="Notifications\n Receiver"]
+	{ClientUI DriverUI}-> notifReceiver[label="exposes" arrowhead=dot]
+	notifReceiver->NotificationModule[label="needed by" arrowhead=curve]
+	
+	HttpRequest[shape=ellipse label="Http/s \n Request"]
+	{ClientUI DriverUI AdminUI}-> HttpRequest[label="needed by" dir=both arrowhead=none arrowtail=curve]
+	HttpRequest->HttpHandler[label="exposes" dir=both arrowhead=none arrowtail=dot]
+}

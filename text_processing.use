@@ -1,4 +1,10 @@
 simple translation-substituition tool: tr
+check for a match with before-after match: grep -oP '<before pattern>\K<matching group>(?=<after pattern>)' 
+merge file by column: pr -mts, file1 file2 (the comma is the column separator)
+case insensitive grep: grep -i
+select a field in a output: command | cut -d'separator' -f'fieldnumber'
+ascii art text and banner: figlet
+add line number: cat -n
 render a tex | latex document: pdflatex doc.tex
 real-time markdown view: livedown (npm install -g livedown)
 grep binary files forcing the output: grep -a --text
@@ -6,6 +12,7 @@ count pages in pdfs:for i in *; do pdfinfo $i | grep Pages | egrep -o '[0-9]*'
 add line numbers: nl -nrz -w9 filename.txt
 process each line of a file: while read line; do echo -e "$line\n"; done < file.txt
 url encoding: echo -ne '<script>window.location="http://polictf.it/";</script>' | xxd -plain | tr -d '\n' | sed 's/\(..\)/%\1/g'
+delete empty lines: sed '/^\s*$/d' -i filename
 #Complex commands
 Remove \n from string: ':begin;$!N;s/\n//;tbegin'
 Replace ; with \n: sed $'s/;/;\\\n/g'
