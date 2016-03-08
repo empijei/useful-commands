@@ -1,4 +1,5 @@
 sort files by date: ls -t (-tr for reverse order)
+get file foll path : realpath localfile
 list file one by one with escaped spaces: ls -1 | sed "s/.*/'&'/"
 run a command for every file: find . -type f -exec <comando> {} \;
 reanme files ina a batch:rename

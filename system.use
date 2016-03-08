@@ -9,7 +9,7 @@ recort all input and output of terminal: script logfile.log
 coredumps: coredumpctl list; coredumpctl info PID; coredumpctl gdb PID;
 get power consumption: cat /sys/class/power_supply/BAT0/power_now
 terminal task manager: htop or top
-top sorting: M by memory P by CPU
+top sorting: M by memory P by CPU N by pid
 sound options : alsamixer
 encrypted folders in user-space: encfs
 disk usage analyzer: ncdu
