@@ -1,4 +1,5 @@
 automatically configure secondary screen: xrandr --output DP1 --auto --right-of eDP1
+run a command as an other user: runuser -l  userNameHere -c 'command'
 xargs with spaces, line by line: xargs -d"\n" -n 1 command 
 get unix/posix/epoch time: date +%s
 set java: archlinux-java set java-8-jdk
