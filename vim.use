@@ -1,4 +1,5 @@
 :set paste per incollare senza tabulazioni superflue
+inside parens movement: i( [i.e delete params in fucntion call: di( ]
 filname: :echo @%
 open "man" of word under cursor: K
 set syntax: :set syntax=html | :set filetype=html
