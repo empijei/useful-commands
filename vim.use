@@ -1,5 +1,10 @@
 :set paste per incollare senza tabulazioni superflue
 inside parens movement: i( [i.e delete params in fucntion call: di( ]
+move from tab to buf view: :ball (:vert ball) viceversa from split to tabs: :tab all
+move a tab to split: sb <buffer_index>
+move a single split to tab: ctrl+w T
+rotate splits: ctrl+wr
+move splits around: ctrl+w HJKL
 filname: :echo @%
 open "man" of word under cursor: K
 set syntax: :set syntax=html | :set filetype=html
