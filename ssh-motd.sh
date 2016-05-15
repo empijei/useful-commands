@@ -1,5 +1,4 @@
 motd(){
-if [[ -n $SSH_CONNECTION ]] ; then
 	local TIMEOFDAY=""
 	d=$(date +%H)
 	if [ $d -lt 12 ]
@@ -15,6 +14,15 @@ if [[ -n $SSH_CONNECTION ]] ; then
 		TIMEOFDAY="Good Night"
 	fi
 	figlet "$TIMEOFDAY, $(whoami)"
-fi
+	local PADDING="$(($(tput cols)/2))"
+	local SHIFTPAD="$(($PADDING-13))" #13 is half the width of the ascii arti
+	local PAD="$(printf '%-'"$SHIFTPAD"'s%s')"
+	while read line
+	do
+		echo "$PAD$line"
+	done < $HOME/.muffet
 }
-motd
+if [[ -n $SSH_CONNECTION ]] ; then
+	motd
+fi
+
