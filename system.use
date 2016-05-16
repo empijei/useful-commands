@@ -1,4 +1,5 @@
 automatically configure secondary screen: xrandr --output DP1 --auto --right-of eDP1
+show files of a package: pacman -Ql package
 popup via ssh: zenity --info --text "hi" --display=:0
 get linux version: cat /etc/*-release
 run a command as an other user: runuser -l  userNameHere -c 'command'
