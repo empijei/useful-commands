@@ -1,4 +1,5 @@
 draw plots and data graphs: gnuplot
+launch Android emulator without android studio:export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/Android/Sdk/tools/lib64
 copy a disk bit-a-bit: dcfldd if=/dev/sourcedrive hash=md5,sha256 hashwindow=10G md5log=md5.txt sha256log=sha256.txt hashconv=after bs=512 conv=noerror,sync split=10G splitformat=aa of=driveimage.dd
 play all files in a directory: find | xargs -i mplayer {}
 If you need to know where your variables are allocated (heap or stack) in go: go run -gcflags -m main.go
