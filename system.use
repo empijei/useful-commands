@@ -1,4 +1,5 @@
 automatically configure secondary screen: xrandr --output DP1 --auto --right-of eDP1
+auto setup loop partitions on dd image of whole disk: losetup
 show files of a package: pacman -Ql package
 popup via ssh: zenity --info --text "hi" --display=:0
 get linux version: cat /etc/*-release
