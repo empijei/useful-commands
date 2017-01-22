@@ -33,3 +33,7 @@ git diff HEAD [filename]
 
 git rm $(git ls-files --deleted) per rimuovere i rimossi
 see last changes on a file: git log -p filename
+
+
+git fetch
+git rebase origin/master
