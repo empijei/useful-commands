@@ -54,9 +54,18 @@ do          - diff obtain
 dp          - diff put
 :diffupdate - reload diffs
 
+deactivate the coloring in vim
+
+:diffoff!
+And to turn it on again
+
+:windo diffthis
+
+
 To comment out blocks in vim:
 hit ctrl+v (visual block mode)
 use the down arrow keys to select the lines you want (it won't highlight everything)
 Shift+i (capital I)
 insert the text you want, i.e. '% '
 Press ESC
+

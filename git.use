@@ -36,4 +36,5 @@ see last changes on a file: git log -p filename
 
 
 git fetch
+(git merge, fetch +  merge == pull)
 git rebase origin/master
