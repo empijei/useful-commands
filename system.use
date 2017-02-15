@@ -86,6 +86,7 @@ set volume: pactl set-sink-volume <iface> <0-65536>
 info on pc: uname, lspci plusb ,ls /sys/class/<subsystem> ,ls /sys/bus/<bus> 
 hibernate, suspend: pm-<hibernate/suspend>
 pid of process: pidof
+tree of dependencies on arch linux: pactree
 
 
 
