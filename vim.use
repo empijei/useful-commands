@@ -69,3 +69,5 @@ Shift+i (capital I)
 insert the text you want, i.e. '% '
 Press ESC
 
+Load fgrep in quickfix: vim -q <(fgrep empijei)
+from vim: :cf quickfix-file
