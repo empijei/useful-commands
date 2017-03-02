@@ -1,0 +1,7 @@
+read file: 
+var fs = require('fs')
+fs.readFile('foo.tmp', 'utf8', function (err, data) {
+if (err) throw err;
+obj = JSON.parse(data);
+});
+parse json from bash: jq
