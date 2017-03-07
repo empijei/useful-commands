@@ -71,3 +71,4 @@ Press ESC
 
 Load fgrep in quickfix: vim -q <(fgrep empijei)
 from vim: :cf quickfix-file
+
