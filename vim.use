@@ -4,6 +4,7 @@ move from tab to buf view: :ball (:vert ball) viceversa from split to tabs: :tab
 move a tab to split: sb <buffer_index>
 move a single split to tab: ctrl+w T
 rotate splits: ctrl+wr
+reindent all files within folder: args **/*.cpp | argdo execute "norm gg=G" | update
 move splits around: ctrl+w HJKL
 filname: :echo @%
 open "man" of word under cursor: K
