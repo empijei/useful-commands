@@ -1,4 +1,5 @@
 automatically configure secondary screen: xrandr --output DP1 --auto --right-of eDP1
+dump keyboard layout in xkb format: xkbcomp $DISPLAY out.dump
 process tree: pstree
 auto setup loop partitions on dd image of whole disk: losetup
 show files of a package: pacman -Ql package
