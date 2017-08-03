@@ -73,3 +73,4 @@ Press ESC
 Load fgrep in quickfix: vim -q <(fgrep empijei)
 from vim: :cf quickfix-file
 
+reindent whole folder: :args **/*.cs | argdo execute "norm gg=G" | update
