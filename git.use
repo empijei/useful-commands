@@ -38,3 +38,9 @@ see last changes on a file: git log -p filename
 git fetch
 (git merge, fetch +  merge == pull)
 git rebase origin/master
+
+merge pr:
+git checkout -b otheruser-master master
+git pull https://github.com/otheruser/wapty.git master
+git merge --no-ff otheruser-master
+git push origin master
