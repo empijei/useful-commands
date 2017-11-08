@@ -2,3 +2,4 @@ list all images:docker image ls -a
 remove image: docker rmi $ID
 list all containers: docker ps -a
 remove container: docker rm $ID
+docker space usage: docker system df
